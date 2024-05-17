@@ -1,6 +1,7 @@
 # College Notes Repository
 
 This repository contains college notes for different years, trimesters, courses, and weekly modules.
+**certain folders might not be visible in case where the folder is empty**
 
 ## Structure
 
