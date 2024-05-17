@@ -640,7 +640,9 @@ int main() {
   effective_address = base_address + (i * (i + 1) / 2) + j
   ```
 - For right lower triangular matrix
-![[Pasted image 20240516201204.png]]
+
+    ![Example Image](example.png)
+
 ### Generalization
 
 - The same principles apply to other types of triangular matrices and can be adapted for column-major order.
