@@ -251,3 +251,104 @@ https://www.analytixlabs.co.in/blog/r-programming-language-basics
   - Practice and experiment to become proficient with the RStudio environment in Coursera.
 
 All the best and happy coding!
+
+
+# Exercises covered in LAB
+
+### Familiarizing Yourself with RStudio Interface
+Before you dive into the exercises, get comfortable with the RStudio interface:
+- **Console**: Where you can directly interact with R. You can type commands and see immediate results.
+- **Script Editor**: Where you can write, save, and run your R scripts.
+- **Environment/History**: This panel shows the objects in your current R session and keeps a history of your commands.
+- **Plots/Packages/Help**: Useful for data visualization, managing R packages, and accessing documentation.
+
+### Exercise 1: Basic Arithmetic Operations
+1. Open a new script file by going to `File` > `New File` > `R Script`.
+2. Type the following lines into the script editor:
+
+   ```r
+   # Addition
+   2 + 3
+   # Subtraction
+   5 - 2
+   # Multiplication
+   4 * 6
+   # Division
+   10 / 2
+   ```
+
+3. Place the cursor on each line and press `Ctrl + Enter` to run the line and observe the results in the console.
+
+### Exercise 2: Variables and Assignments
+1. Continue in the same script or open a new one.
+2. Declare variables and perform operations:
+
+   ```r
+   # Declare variables
+   x <- 5
+   y <- 3
+
+   # Perform operations
+   sum <- x + y
+   difference <- x - y
+
+   # View the results
+   sum
+   difference
+   ```
+
+3. Run the code by placing the cursor on each line and pressing `Ctrl + Enter`.
+4. Modify the values of `x` and `y` and rerun the code to see how the output changes.
+
+### Exercise 3: Data Types
+1. In the same script or a new one, explore different data types:
+
+   ```r
+   # Numeric
+   num_var <- 10
+
+   # Character
+   char_var <- "Hello, R!"
+
+   # Logical
+   bool_var <- TRUE
+
+   # View the data types
+   class(num_var)
+   class(char_var)
+   class(bool_var)
+   ```
+
+2. Run each line and observe the output. The `class()` function will show you the type of each variable.
+3. Experiment by assigning different values to these variables and checking their data types again.
+
+### Exercise 4: Simple Plot
+1. Generate a simple scatter plot by adding the following code to your script:
+
+   ```r
+   # Generate data
+   x <- 1:10
+   y <- x^2
+
+   # Plot
+   plot(x, y, main = "Simple Scatter Plot", xlab = "X", ylab = "Y")
+   ```
+
+2. Run the code and observe the plot in the `Plots` tab.
+3. Experiment with modifying the data or adding additional customization to the plot. For example:
+
+   ```r
+   plot(x, y, main = "Customized Scatter Plot", xlab = "X Axis", ylab = "Y Axis", col = "blue", pch = 19)
+   ```
+
+   - `col` sets the color of the points.
+   - `pch` sets the type of the plot points.
+
+Use `?plot` in the console to access the help documentation for more customization options.
+
+### Notes
+- **Saving Work**: Save your script frequently by going to `File` > `Save` or pressing `Ctrl + S`.
+- **Running Code**: `Ctrl + Enter` runs the current line or selected lines in the script editor.
+- **Modifications**: Feel free to change the values, try different operations, and customize your plots to better understand how R works.
+
+By following these steps, you should become more comfortable with basic R operations, variables, data types, and plotting. Good luck with your lab!
