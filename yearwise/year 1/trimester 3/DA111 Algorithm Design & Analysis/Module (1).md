@@ -130,9 +130,9 @@
 - Developing a strong understanding of algorithms and their analysis is crucial for problem-solving in data science and software engineering.
 - This course aims to equip you with the necessary skills to tackle complex real-world problems effectively.
 
-In this lecture, the focus is on understanding the complexities involved in solving real-world problems using algorithms, specifically illustrated through the traveling salesman problem (TSP) in the context of a grocery delivery app like Walmart or Flipkart.
+### An Example - Walmart
 
-### Key Points Discussed:
+In this lecture, the focus is on understanding the complexities involved in solving real-world problems using algorithms, specifically illustrated through the traveling salesman problem (TSP) in the context of a grocery delivery app like Walmart or Flipkart.
 
 1. **Problem Context**:
     - The TSP involves finding the optimal route for a delivery person to visit multiple locations without revisiting any location.
@@ -146,11 +146,12 @@ In this lecture, the focus is on understanding the complexities involved in solv
     - In the morning, faculty quarters might be accessible, but institute buildings might not be operational, and shops might not be open. This requires scheduling based on availability rather than just proximity.
 
 4. **Geodesic vs. Physical Distance**:
+	- **Euclidean Distance**: The shortest straight paths b/w two points.
     - **Geodesic Distance**: The shortest path between two points on the Earth's surface, considering the curvature of the Earth.
     - **Physical Distance**: The actual travel path, which might be longer due to road layouts or flight paths.
     - An example is the route from Delhi to Kanpur, which might include detours through other towns, making the actual travel distance longer than the straight-line distance.
 
-5. **Advanced Considerations**:
+6. **Advanced Considerations**:
     - Algorithms need to account for non-linear and complex real-world conditions. 
     - **Riemannian Manifold**: Used to consider deviations from linear distances, applicable in complex geographical scenarios.
 
@@ -183,20 +184,21 @@ By applying these principles, you can develop more effective and efficient algor
    - Recognize exponential time analysis and understand that simple problems can become complex (e.g., Traveling Salesman Problem).
 
 5. **Challenges in Algorithm Design**:
+   - Simple problems can be hard (like TSP)
    - Simple ideas may not always be effective (e.g., nearest neighbor heuristics).
    - Simple algorithms (e.g., brute-force methods) can be impractically slow.
    - For NP-hard problems, even the best solutions can be slow, necessitating approximate solutions.
 
-6. **Course Benefits**:
+7. **Course Benefits**:
    - Analytical thinking: The course fosters analytical thinking and understanding of algorithmic concepts.
    - Communication: Learning algorithmic jargon is essential for effective communication in the software engineering community.
    - Industry Relevance: There is a high demand for skills in algorithms and data structures in the booming data science and software engineering industries.
 
-7. **Industry Demand**:
+8. **Industry Demand**:
    - Data scientists and software engineers with strong algorithmic skills are in high demand.
    - Skills in churning large amounts of data and deriving business decisions are valuable.
 
-8. **Essential Skills**:
+9. **Essential Skills**:
    - Mastering algorithms and data structures is crucial for penetrating the industry.
    - Proficiency in these areas is necessary for career advancement and meeting industry expectations.
 
@@ -460,3 +462,444 @@ This lecture delves into the complex problem of designing a phone that meets the
 
 #### Summary:
 The lecture outlines the structure of the course, emphasizing the importance of regular practice, individual effort, and academic integrity. It highlights the breakdown of assessments and encourages collaboration while emphasizing the necessity of independent problem-solving skills. Students are reminded to engage actively, seek assistance when needed, and approach learning algorithms with dedication and perseverance.
+
+## Asymptotic Analysis
+
+## Lecture Overview
+
+### Key Learning Points:
+1. **Asymptotic Analysis**: 
+   - Understanding the behavior of algorithms as input size grows.
+   
+2. **Types of Analysis**:
+   - Methods to determine the efficiency of algorithms.
+   
+3. **Practical Applications**:
+   - Examples of how software engineers optimize time complexity in programs.
+
+### Learning Outcomes:
+By the end of this lecture, you will:
+1. **Understand Algorithm Notations**:
+   - Learn and recognize Big O, Big Θ, and Big Ω notations.
+   
+2. **Comprehend Time and Space Complexity**:
+   - Grasp the concepts of how algorithms utilize time and memory.
+   
+3. **Differentiate Solutions**:
+   - Compare and contrast different algorithms to identify optimal solutions.
+   
+4. **Evaluate Solutions**:
+   - Develop skills to determine the best algorithm for specific problems.
+
+5. **Self-Evaluation of Complexity**:
+   - Gain the ability to independently calculate time and space complexities.
+
+### Practical Relevance:
+- **Real-World Application**:
+  - Implementing learned techniques to choose and optimize algorithms for practical use.
+  
+- **Algorithm Implementation**:
+  - Translating given steps or pseudocode from resources into functional algorithms.
+
+### Importance of Optimal Solutions:
+- **Internet Resources**:
+  - Recognize that while solutions are readily available online, their optimality must be evaluated.
+  
+- **Understanding Jargon**:
+  - Learn to understand and apply algorithm analysis terminology effectively.
+
+## Asymptotic Analysis
+
+### Definition and Purpose
+Set of parameters to compare different algorithms, mainly time and space
+Asymptotic analysis is a method of describing the running time and space complexity of an algorithm as the input size grows. It provides a high-level understanding of how an algorithm performs and scales with large input sizes. This is crucial for comparing the efficiency of different algorithms and ensuring they are feasible for real-world applications.
+
+### Real-world Analogy
+Consider making food:
+- **Single Person**: Making food for one person is straightforward, and the waiting time can be quite long.
+- **Restaurant**: When serving a large number of customers, efficiency is critical. Pre-processing (e.g., pre-cut vegetables) helps reduce waiting times. Similarly, in algorithms, pre-processing can improve performance.
+
+### Key Concepts
+- **Input Size (n)**: Number of inputs or the size of the problem.
+- **Time Complexity (T(n))**: Function representing the time an algorithm takes based on the input size.
+- **Space Complexity (S(n))**: Function representing the space an algorithm uses (RAM) based on the input size.
+
+### Importance
+- **Scalability**: Efficient algorithms handle larger inputs without significant performance degradation.
+- **Resource Management**: Ensuring minimal use of computational resources (CPU time, memory).
+
+### Notations
+1. **Big O (O)**: Upper bound of the running time. It describes the worst-case scenario.
+2. **Big Omega (Ω)**: Lower bound of the running time. It describes the best-case scenario.
+3. **Big Theta (Θ)**: Tight bound of the running time. It describes both the upper and lower bounds, representing the average case.
+
+### Examples
+
+1. **Big O Notation**
+   - Describes the maximum time an algorithm will take.
+   - Example: If a restaurant tells you that the food will be ready in at most 20 minutes, this is analogous to O(20), meaning the upper bound is 20 minutes.
+
+2. **Big Omega Notation**
+   - Describes the minimum time an algorithm will take.
+   - Example: If a restaurant tells you that you need to wait at least 20 minutes, this is analogous to Ω(20), meaning the lower bound is 20 minutes.
+
+3. **Big Theta Notation**
+   - Describes the average time an algorithm will take.
+   - Example: If a restaurant tells you that you may need to wait around 20 minutes, it can be either more or less, this is analogous to Θ(20), representing the average case.
+
+### Types of Time Complexities
+
+1. **Constant Time (O(1))**
+   - The running time is constant and does not change with the input size.
+   - Example: Accessing an element in a hash table.
+
+2. **Logarithmic Time (O(log n))**
+   - The running time increases logarithmically with the input size.
+   - Example: Binary search.
+
+3. **Linear Time (O(n))**
+   - The running time increases linearly with the input size.
+   - Example: Iterating through an array.
+
+4. **Linearithmic Time (O(n log n))**
+   - The running time increases in proportion to n log n.
+   - Example: Merge sort.
+
+5. **Quadratic Time (O(n^2))**
+   - The running time increases quadratically with the input size.
+   - Example: Bubble sort.
+
+6. **Cubic Time (O(n^3))**
+   - The running time increases cubically with the input size.
+   - Example: Certain dynamic programming algorithms.
+
+7. **Exponential Time (O(2^n))**
+   - The running time doubles with each additional input.
+   - Example: Solving the traveling salesman problem using brute force.
+   - np hard problems use this
+
+8. **Factorial Time (O(n!))**
+   - The running time grows factorially with the input size.
+   - Example: Generating all permutations of a set.
+   - np hard problems use this too
+### Practical Implications
+- **Servers and Large-Scale Systems**: Efficient algorithms ensure that servers, like those of Google or Amazon, handle millions of users without crashing or significant slowdowns.
+- **Embedded Systems**: Devices with limited resources, such as Raspberry Pi, require highly optimized algorithms to function correctly.
+
+### Conclusion
+Understanding asymptotic analysis and using it to evaluate algorithms ensures that they are efficient, scalable, and suitable for both small and large-scale applications. The ability to determine the time and space complexity is crucial for developing algorithms that meet performance requirements in various contexts.
+
+### Polynomial vs. Exponential Functions in Algorithms
+
+When discussing the performance of algorithms, the time complexity determines how the runtime increases with the size of the input (denoted as \( n \)). Here’s a comparison of different time complexities and how they affect the size of \( n \) that can be handled in a fixed amount of time.
+
+### Time Complexity Classes
+1. **Logarithmic Time (\( O(\log n) \))**
+   - Example: Binary search.
+   - If an algorithm takes \( O(\log n) \) time, and given 1 second (10^6 microseconds), it can handle \( n = 2^{10^6} \), which is an astronomically large number.
+
+2. **Linear Time (\( O(n) \))**
+   - Example: Simple search.
+   - In 1 second, it can handle \( n = 10^6 \).
+
+3. **Quadratic Time (\( O(n^2) \))**
+   - Example: Simple sorting algorithms like bubble sort.
+   - In 1 second, it can handle \( n = \sqrt{10^6} = 1000 \).
+
+4. **Cubic Time (\( O(n^3) \))**
+   - Example: Certain dynamic programming problems.
+   - In 1 second, it can handle \( n = \sqrt[3]{10^6} \approx 100 \).
+
+5. **Exponential Time (\( O(2^n) \))**
+   - Example: Solving the Traveling Salesman Problem using brute force.
+   - In 1 second, it can handle \( n = \log_2{10^6} \approx 19 \).
+
+6. **Factorial Time (\( O(n!) \))**
+   - Example: Permutations of a set.
+   - In 1 second, it can handle \( n \approx 9 \).
+
+### Impact on Input Size
+As the time complexity increases, the maximum input size \( n \) that can be handled within a fixed amount of time decreases dramatically. For instance:
+- **Logarithmic**: Handles exponentially large inputs.
+- **Linear**: Handles large inputs.
+- **Quadratic**: Handles moderate inputs.
+- **Cubic**: Handles smaller inputs.
+- **Exponential and Factorial**: Handles very small inputs.
+
+### Order of Growth and Practical Implications
+When analyzing algorithms, we focus on the order of growth:
+- **Constant Time (\( O(1) \))**: Executes in the same time regardless of the input size.
+- **Logarithmic Time (\( O(\log n) \))**: Efficient for large datasets.
+- **Linear Time (\( O(n) \))**: Suitable for moderately large datasets.
+- **Linearithmic Time (\( O(n \log n) \))**: Efficient for sorting algorithms like mergesort.
+- **Quadratic Time (\( O(n^2) \))**: Feasible for small to moderate datasets.
+- **Cubic Time (\( O(n^3) \))**: Practical for small datasets.
+- **Exponential and Factorial Time (\( O(2^n), O(n!) \))**: Generally impractical except for very small inputs or specific problems.
+
+### Big O Notation
+- **Big O (\( O \))**: Describes the upper bound of the algorithm's runtime, focusing on the worst-case scenario.
+- **Big Omega (\( \Omega \))**: Describes the lower bound, focusing on the best-case scenario.
+- **Big Theta (\( \Theta \))**: Describes the exact bound, when the upper and lower bounds are the same.
+
+In practice, **Big O notation** is the most commonly used to express the worst-case time complexity of algorithms. For instance, if an algorithm has multiple steps with different complexities, the overall time complexity is determined by the highest complexity among them.
+
+### Practical Example
+Consider a nested loop:
+```cpp
+for (int i = 0; i < n; i++) {
+    for (int j = 0; j < n; j++) {
+        // constant time operations
+    }
+}
+```
+This has a time complexity of \( O(n^2) \). If there's another segment of code with \( O(n) \), the overall complexity is still \( O(n^2) \), since \( O(n^2) \) dominates \( O(n) \).
+
+### Conclusion
+Understanding the time complexity of algorithms helps in selecting the appropriate algorithm for a given problem and predicting its performance for different input sizes. In industry, while complex mathematical proofs of time complexity are rare, a practical understanding of these concepts is essential for writing efficient code.
+
+### 3-SUM Problem Algorithm
+
+#### Problem Statement
+Given an array of integers, find three numbers such that they add up to zero (or a specified value \( c \)). The three numbers must be distinct and should not be at the same index.
+
+#### Example Inputs and Outputs
+- Input: \([ -1, 0, 1, 2, -1, -4 ]\)
+  - Output: \([ [-1, -1, 2], [-1, 0, 1] ]\)
+
+- Input: \([ 0, 0, 0 ]\)
+  - Output: \([ [0, 0, 0] ]\)
+
+- Input: \([ 1, 2, -2, -1 ]\)
+  - Output: \([]\)
+
+#### Brute Force Solution
+1. **Approach**: Use three nested loops to iterate over all possible triplets and check if their sum is zero.
+2. **Time Complexity**: \(O(n^3)\)
+3. **Pseudocode**:
+   ```cpp
+   for (int i = 0; i < n - 2; i++) {
+       for (int j = i + 1; j < n - 1; j++) {
+           for (int k = j + 1; k < n; k++) {
+               if (arr[i] + arr[j] + arr[k] == 0) {
+                   print(arr[i], arr[j], arr[k]);
+               }
+           }
+       }
+   }
+   ```
+
+#### Optimized Solution (Two-pointer technique)
+1. **Approach**: First sort the array. Then, use two pointers to find the other two numbers for each element.
+2. **Time Complexity**: \(O(n^2)\)
+3. **Steps**:
+   - Sort the array.
+   - Fix one element and find the other two using two pointers.
+
+4. **Pseudocode**:
+   ```cpp
+   vector<vector<int>> threeSum(vector<int>& nums) {
+       vector<vector<int>> result;
+       sort(nums.begin(), nums.end());
+       for (int i = 0; i < nums.size() - 2; i++) {
+           if (i == 0 || (i > 0 && nums[i] != nums[i-1])) {
+               int lo = i + 1, hi = nums.size() - 1, sum = 0 - nums[i];
+               while (lo < hi) {
+                   if (nums[lo] + nums[hi] == sum) {
+                       result.push_back({nums[i], nums[lo], nums[hi]});
+                       while (lo < hi && nums[lo] == nums[lo+1]) lo++;
+                       while (lo < hi && nums[hi] == nums[hi-1]) hi--;
+                       lo++; hi--;
+                   } else if (nums[lo] + nums[hi] < sum) lo++;
+                   else hi--;
+               }
+           }
+       }
+       return result;
+   }
+   ```
+
+#### Further Optimization Using Hash Maps
+1. **Approach**: Use a hash map to store and look up values quickly.
+2. **Time Complexity**: Still \(O(n^2)\), but with faster lookups.
+3. **Steps**:
+   - For each pair, use a hash map to check if the complement exists.
+
+4. **Pseudocode**:
+   ```cpp
+   vector<vector<int>> threeSum(vector<int>& nums) {
+       vector<vector<int>> result;
+       unordered_map<int, int> num_map;
+       sort(nums.begin(), nums.end());
+       for (int i = 0; i < nums.size() - 2; i++) {
+           if (i > 0 && nums[i] == nums[i-1]) continue;
+           for (int j = i + 1; j < nums.size() - 1; j++) {
+               if (j > i + 1 && nums[j] == nums[j-1]) continue;
+               int complement = -nums[i] - nums[j];
+               if (num_map.find(complement) != num_map.end() && num_map[complement] > j) {
+                   result.push_back({nums[i], nums[j], complement});
+               }
+               num_map[nums[j]] = j;
+           }
+           num_map.clear();
+       }
+       return result;
+   }
+   ```
+
+### Summary
+- **Brute Force**: \(O(n^3)\) time complexity, simple but inefficient for large arrays.
+- **Two-pointer technique**: \(O(n^2)\) time complexity, efficient for larger arrays.
+- **Hash Map Optimization**: \(O(n^2)\) time complexity with faster lookups, but slightly more complex to implement.
+
+For most practical scenarios, the two-pointer technique strikes a good balance between simplicity and efficiency.
+
+### Optimizing Integer Multiplication with Karatsuba Algorithm
+
+#### Problem Statement
+Given two large integers, multiply them efficiently. Traditionally, we use a naive \(O(n^2)\) approach where each digit of one number is multiplied with each digit of the other number. However, there exists a more efficient approach known as the Karatsuba algorithm.
+
+#### Karatsuba Algorithm
+The Karatsuba algorithm is a divide-and-conquer algorithm that reduces the multiplication of two \(n\)-digit numbers to at most \(O(n^{\log_2 3})\) operations, which is approximately \(O(n^{1.585})\). This is achieved by breaking down the multiplication into smaller multiplications and additions.
+
+#### Steps of Karatsuba Algorithm
+1. **Split each number into two halves**:
+   - Let \( x \) be split into \( a \) and \( b \)
+   - Let \( y \) be split into \( c \) and \( d \)
+   - Such that \( x = a \cdot 10^{m/2} + b \) and \( y = c \cdot 10^{m/2} + d \), where \( m \) is the number of digits of the largest number, and \( m/2 \) is half of that number.
+
+2. **Compute the following products recursively**:
+   - \( ac \)
+   - \( bd \)
+   - \( (a + b) \cdot (c + d) \)
+
+3. **Use Gauss's trick** to compute the middle term \( ad + bc \):
+   - Calculate \( ad + bc = (a + b) \cdot (c + d) - ac - bd \)
+
+4. **Combine the results**:
+   - The product \( x \cdot y \) is given by:
+     \[
+     x \cdot y = ac \cdot 10^m + (ad + bc) \cdot 10^{m/2} + bd
+     \]
+
+#### Implementation
+Here is a C++ implementation of the Karatsuba algorithm:
+
+```cpp
+#include <iostream>
+#include <vector>
+#include <algorithm>
+#include <cmath>
+using namespace std;
+
+int multiplySingleDigit(int x, int y) {
+    return x * y;
+}
+
+string addStrings(string num1, string num2) {
+    string result = "";
+    int carry = 0, i = num1.size() - 1, j = num2.size() - 1;
+    while (i >= 0 || j >= 0 || carry) {
+        int sum = carry;
+        if (i >= 0) sum += num1[i--] - '0';
+        if (j >= 0) sum += num2[j--] - '0';
+        carry = sum / 10;
+        result.push_back(sum % 10 + '0');
+    }
+    reverse(result.begin(), result.end());
+    return result;
+}
+
+string subtractStrings(string num1, string num2) {
+    string result = "";
+    int carry = 0, i = num1.size() - 1, j = num2.size() - 1;
+    while (i >= 0 || j >= 0) {
+        int diff = carry + (i >= 0 ? num1[i--] - '0' : 0) - (j >= 0 ? num2[j--] - '0' : 0);
+        carry = diff < 0 ? -1 : 0;
+        result.push_back((diff + 10) % 10 + '0');
+    }
+    reverse(result.begin(), result.end());
+    return result;
+}
+
+string multiplyStrings(string x, string y) {
+    if (x.size() == 1 || y.size() == 1) return to_string(multiplySingleDigit(stoi(x), stoi(y)));
+    
+    int n = max(x.size(), y.size());
+    int half = n / 2;
+
+    string a = x.substr(0, x.size() - half);
+    string b = x.substr(x.size() - half);
+    string c = y.substr(0, y.size() - half);
+    string d = y.substr(y.size() - half);
+
+    string ac = multiplyStrings(a, c);
+    string bd = multiplyStrings(b, d);
+    string ab_cd = multiplyStrings(addStrings(a, b), addStrings(c, d));
+    
+    string ad_plus_bc = subtractStrings(subtractStrings(ab_cd, ac), bd);
+
+    string ac_zeros(n, '0');
+    string ad_plus_bc_zeros(n / 2, '0');
+
+    ac += ac_zeros;
+    ad_plus_bc += ad_plus_bc_zeros;
+
+    return addStrings(addStrings(ac, ad_plus_bc), bd);
+}
+
+int main() {
+    string x = "2345";
+    string y = "1246";
+    cout << "Product: " << multiplyStrings(x, y) << endl;
+    return 0;
+}
+```
+
+#### Explanation
+1. **Base Case**: If either string is a single digit, multiply directly.
+2. **Recursive Split**: Split the input strings into two halves.
+3. **Recursive Multiplications**: Recursively calculate the three products: \( ac \), \( bd \), and \( (a + b)(c + d) \).
+4. **Combining Results**: Use string addition and subtraction to combine the intermediate results correctly.
+
+This implementation leverages string manipulation to handle arbitrarily large integers, making it suitable for competitive programming and other applications involving large numbers.
+
+### Asymptotic Analysis in Algorithm Comparison
+
+#### Importance of Time and Space Complexity
+When comparing different algorithms, two critical parameters are time complexity and space complexity. Efficient algorithms ensure that software performs well under varying conditions, avoiding failures due to excessive memory usage or slow execution times.
+
+#### Practical Example: Comparing Two Implementations on Different Machines
+Let's consider a scenario where two machines, A and B, run different implementations of the same algorithm on increasing input sizes. This example demonstrates the significance of choosing the right algorithm for different input sizes.
+
+#### Example Analysis
+- **Small Input Sizes**: For small input sizes, Machine A is more efficient.
+  - **Input Size 10**:
+    - Machine A: 2 seconds
+    - Machine B: 1 hour
+  - **Input Size 20**:
+    - Machine A: 22 seconds
+    - Machine B: 1.8 hours
+
+- **Large Input Sizes**: As the input size increases, Machine B becomes more efficient.
+  - **Input Size \(10^6\)**:
+    - Machine A: 55 hours
+    - Machine B: 5 hours
+  - **Input Size \(10^9\)**:
+    - Machine A: 6.6 years
+    - Machine B: 8.5 years
+
+#### Trade-Offs and Data Structures
+- **Simple vs. Advanced Data Structures**:
+  - Simple data structures are easy to use and maintain but may not perform well with large data sets.
+  - Advanced data structures, while more complex and harder to maintain, offer better performance for large data sets due to optimized time and space complexity.
+
+#### Big Data Era Considerations
+- **Scaling Solutions**:
+  - In the current era of big data, algorithms must handle vast amounts of data efficiently.
+  - Solutions must be scalable, balancing initial complexity with long-term efficiency.
+
+#### Summary
+Understanding the trade-offs between different algorithms and data structures is crucial. While simpler solutions might be sufficient for small-scale problems, more complex data structures and algorithms are necessary for handling large-scale data efficiently. Always consider the potential growth of data and choose the right tools to ensure your solutions remain effective as they scale.
+
+### Conclusion
+In this week's content, we've explored the importance of asymptotic analysis and how it helps in choosing the right algorithms and data structures for different scenarios. As we move forward, we'll delve deeper into these concepts with practical examples and assignments to solidify your understanding. See you in the live session and next week's content.
