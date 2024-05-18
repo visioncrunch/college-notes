@@ -350,5 +350,4 @@ Use `?plot` in the console to access the help documentation for more customizati
 - **Saving Work**: Save your script frequently by going to `File` > `Save` or pressing `Ctrl + S`.
 - **Running Code**: `Ctrl + Enter` runs the current line or selected lines in the script editor.
 - **Modifications**: Feel free to change the values, try different operations, and customize your plots to better understand how R works.
-
 By following these steps, you should become more comfortable with basic R operations, variables, data types, and plotting. Good luck with your lab!
