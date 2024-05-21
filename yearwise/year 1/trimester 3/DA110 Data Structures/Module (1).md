@@ -572,6 +572,8 @@ int main() {
 2. **Diagonal Matrix:** Only diagonal elements are non-zero.
 3. **Tri-Diagonal Matrix:** Non-zero elements are on the diagonal, and the first diagonals above and below it.
 
+**Sparsity is number of zeroes/ number of total elements**
+
 ### Storing Sparse Matrices
 
 **Example: Left Lower Triangular Matrix:**

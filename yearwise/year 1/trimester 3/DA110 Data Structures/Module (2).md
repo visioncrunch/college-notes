@@ -1,854 +1,942 @@
-# **Introduction to Data Structure:**
+# Linked List Overview
+- **Linear Data Structure**: Elements are arranged in a sequence: first, second, third, etc.
+- **Non-Contiguous Memory**: Elements are stored at arbitrary locations in memory.
+- **Heterogeneous Data Structure**: Each element/node contains multiple fields.
+- **Dynamic Data Structure**: Memory allocation can change at runtime (nodes can be added or removed).
+- **Sequential Access**: Nodes must be accessed in order from the first node onwards.
 
-- **Definition:**
-  - Data structure is the organization of data along with a set of operations that can be applied to them, implemented using well-defined algorithms.
-  - It encompasses how data elements are arranged, the operations applicable to the arrangement, and the algorithms for executing these operations.
+A type of data structure where each element is connected to its previous and next element, forming a sequence.
 
-**Understanding Data Structures and Algorithms with Toy Examples:**
-
-- **Scenario I - Random Access:**
-  - Books are arranged linearly.
-  - Insertion and removal can happen at arbitrary locations without affecting others.
-  - Operations are characterized by their randomness.
-  - It is a way of arranging elements in memory such that an element can be accessed/visited directly without visiting other elements.
-
-- **Scenario II - Last-In First-Out (LIFO) or First-In Last-Out (FILO):**
-  - Books inserted and removed from one side only.
-  - Removal occurs from the same side as the last insertion.
-  - Illustrates the concept of a stack.
-
-- **Scenario III - First-In First-Out (FIFO) or Last-In Last-Out (LILO):**
-  - Insertion from one end, removal from the other.
-  - Emphasizes the order of insertion and removal.
-  - Demonstrates the concept of a queue.
-
-- **Variations and Complexity:**
-  - Other arrangements include hierarchical or network structures.
-  - Each structure has associated operations like insertion and removal, executed through well-defined algorithms.
-
-**Data Structure Components:**
-
-- **Organization:**
-  - How data elements are arranged, such as linearly or hierarchically.
-
-- **Operations:**
-  - Actions that can be performed on the arrangement, like insertion and removal.
-
-- **Algorithms:**
-  - Well-defined sequences of sub-operations to execute operations efficiently.
-
-**Key Takeaways:**
-- Data structures provide a framework for organizing data.
-- Understanding operations and algorithms is crucial for efficient data manipulation.
-- Various arrangements cater to different needs, from linear to hierarchical or networked structures.
-
-**Conclusion:**
-- Data structures are fundamental in organizing and manipulating data efficiently, essential for various computational tasks.
-
-# **Understanding Programs, Data Structures, and Algorithms:**
-
-**Introduction:**
-- Recap of previous lesson: Definition of data structure and algorithm with examples.
-- Focus of current lesson: Understanding programs and their relation to data structures and algorithms.
-
-**Example 1: Finding Factorial of an Integer:**
-- Problem: Calculate factorial of a given integer 'n'.
-- Data Needed: Single value 'n'.
-- Data Size: One.
-- Storage: Primary memory (RAM).
-- Data Structure: Primitive data structure (single variable).
-- Algorithm: Iterative multiplication loop.
-- Implementation: Example program in C language.
-
-A primitive data type (or data structure) is one of the default data types (or data structures) of the underlying programming language, which are designed to store only one value.
-
-**Example 2: Searching in a Collection of Integers:**
-- Problem: Find a specific number in a collection.
-- Data Needed: Collection of integer numbers.
-- Data Size: Multiple values.
-- Storage: Memory locations.
-- Data Structure: Non-primitive data structures.
-- Algorithm: Depends on the chosen data structure.
-- Implementation: Example program using primitive data structures and alternative using a non-primitive data structure (array).
-
-**Understanding Programs:**
-- Definition: Programs consist of algorithms applied to data structures. A program is a set of instructions that tells a computer how to perform a specific task or tasks.
-- Components:
-  - Algorithm: Defined steps to solve a problem.
-  - Data Structure: Organizes and stores data for efficient manipulation. It is a defined by data organization + set of operations + respective algorithms.
-- Relation: Data structure and algorithm together define a program's functionality.
-**Conclusion:**
-- Data structures organize data for efficient manipulation.
-- Algorithms provide step-by-step instructions to solve problems.
-- Programs combine algorithms with data structures to achieve desired functionality.
-- Course Focus: Learning various data structures, their operations, algorithms, implementations, and real-world applications.
-
-# **Basic Terminologies I**
-
-**Introduction:**
-- Recap of previous session covering data structures, algorithms, and programs.
-- Current focus: Defining basic terminologies used in the course.
-
-**Data, Data Element, and Data Type:**
-- **Data:** Collection of raw facts, examples include integers, cities, or records.
-- **Data Element:** Logical unit constituting data, e.g., each integer in a collection of integers.
-- **Data Type:** Specifies the type of data each element can hold, such as integer, string, or user-defined structures.
-
-**Storage Structure of Data Collection in Memory:**
-- **Primary Memory (RAM):** Volatile memory for temporary storage during program execution. Instances of data structures are defined in this memory.
-- **Secondary Memory (Hard Disk):** Non-volatile memory for permanent storage.
-- **Memory Allocation Patterns:**
-  - Contiguous Memory Allocation: Elements stored at contiguous memory locations.
-  - Non-contiguous Memory Allocation: Elements stored at arbitrary memory locations.
-
-**Contiguous Memory Allocation:**
-- Elements stored in linear fashion.
-- Supports random access memory, allowing direct access to any element.
-- No additional memory required for storing addresses of other elements.
-- Disadvantages:
-  - Static allocation, unable to change size during runtime.
-  - OS defragmentation if contiguous memory locations are not available
-  - Unused memory space may occur.
-  - Requires large RAM for storing large data collections.
-
-**Non-contiguous Memory Allocation:**
-- Enables dynamic memory allocation, allowing growth and shrinkage during runtime.
-- Does not require large contiguous memory blocks.
-- Disadvantages:
-  - Requires additional memory for storing addresses of other elements.
-  - Higher storage requirement compared to contiguous allocation.
-  - Accessing elements may require traversing through other elements to obtain addresses.
-
-**Conclusion:**
-- Understanding basic terminologies such as data, data element, and data type is crucial.
-- Memory allocation patterns, including contiguous and non-contiguous, impact program efficiency and flexibility.
-- Each allocation method has advantages and disadvantages, influencing decision-making in program design and implementation.
-
-# Basic Terminologies - II
-
-**Week 1 Lecture: Basic Terminologies II**
-
-**Operations on Data Structures:**
-- **Creation:** Generates an empty instance of a data structure.
-- **Insertion:** Adds an element to an instance of the data structure.
-- **Deletion:** Removes an element from the data structure.
-- **Updation:** Modifies the value of a data element.
-- **Searching:** Determines the existence or non-existence of a data element.
-- **Traversal:** Visits every data element in the data structure.
-- **Sorting:** Arranges data elements in ascending or descending order.
-- **Merging:** Combines data elements from two or more data structures.
-
-**Properties of an Algorithm:**
-- **Input Specified:** Clearly defined input(s); can have zero or more inputs.
-- **Output Specified:** Clearly defined output(s); can have one or more outputs.
-- **Definiteness:** Every step of the algorithm must be unambiguously defined.
-- **Finiteness:** Algorithm should terminate after a finite number of steps.
-- **Effectiveness:** Steps should be achievable within a specified time with pen and pencil.
-
-**Complexity of Algorithms:**
-- Defined by time complexity and space complexity.
-- Time complexity: Time taken by the algorithm to execute.
-- Space complexity: Space required by the algorithm to solve the problem.
-- Represented using asymptotic notation.
-
-**Types of Data Structures:**
-- **Primitive or Non-Primitive**: based on number of values that can be stored in a structure.
-- **Linear or Non-linear:** Based on arrangement of elements (sequential or hierarchical).
-- **Homogeneous or Heterogeneous:**
-  - Homogeneous: All elements have single-value data and same data type
-  - Heterogeneous: Elements can have multiple values (e.g., value and address). A data structure that allows you to store different data type values.
-- **Static or Dynamic:**
-  - Static: Size of storage cannot be changed during runtime.
-  - Dynamic: Size of storage can be changed during runtime.
-
-**Data Structures Covered in the Course:**
-- Array
-- Linked List
-- Stack and Queue
-- Tree or Binary Tree
-- Hash
-- Graph
-
-**Conclusion:**
-- Understanding operations and properties of algorithms is essential for problem-solving.
-- Data structures vary in characteristics such as arrangement, homogeneity, and dynamicity.
-- The course will focus on non-primitive data structures, including arrays, linked lists, stacks, queues, trees, hash tables, and graphs.
-
-# **Week 1 Lecture: Array**
-
-**Definition of Array:**
-- An array is a collection of finite, homogeneous data elements stored at contiguous memory locations.
-- Example: Collection of numbers (5, 7, 2, 8, 1, 3) stored in contiguous memory.
-
-**Elements and Index:**
-- **Elements:** Data values within the array (e.g., 5, 7, 2).
-- **Index:** Identifies the location of elements in the array.
-
-**Homogeneity and Linearity:**
-- **Homogeneous:** All elements are of the same data type.
-- **Linear:** Elements are arranged sequentially (e.g., 1st, 2nd, 3rd).
-
-**Accessing Elements:**
-- Elements are accessed using indices.
-- Indexing starts from a lower bound and ends at an upper bound.
-- Example: A(1) represents the first element, A(2) the second, and so on.
-
-**Random Access:**
-- Arrays support random access, allowing direct access to any element using its index (e.g., A(i)).
-
-**Types of Arrays:**
-- **One-dimensional Array:** Collection of zero-dimensional arrays (single values).
-- **Two-dimensional Array:** Array of one-dimensional arrays (rows and columns).
-- **Three-dimensional Array:** Array of two-dimensional arrays (plates, rows, and columns).
-
-**Accessing Elements in Multi-dimensional Arrays:**
-- Accessed using row, column, and plate indices.
-- Example: A(k)(j)(i) represents the element in the kth plate, jth row, and ith column.
-
-**Generalization to n-dimensional Array:**
-- Array of n-1 dimensional arrays with the same size.
-- Accessed using indices up to the nth dimension.
-
-**Conclusion:**
-- Arrays provide efficient storage and retrieval of data.
-- Multi-dimensional arrays extend the concept to higher dimensions.
-- Understanding array dimensions and indexing is crucial for efficient data manipulation.
-
-# **Week 1 Lecture: Representation of Array in Memory**
-
-**Linear Representation in Memory:**
-- Arrays, represented pictorially in multi-dimensional forms, are stored linearly in computer memory.
-- RAM (Random Access Memory) is a linear arrangement of memory cells, each storing one byte of information.
-
-**One-dimensional Array Representation:**
-- Memory is a collection of memory locations.
-- An array of size n and data type 'type' requires n*k bytes of memory (k bytes per element).
-- Elements are stored consecutively, starting from the base address.
-- The address of an arbitrary element A(i) is calculated as Base + (i - lower_bound) * k.
-
-**Two-dimensional Array Representation (Row Major Order):**
-- For an n*m array, total memory required is n*m*k.
-- Elements are stored row-wise: first row, second row, and so on.
-- Address of element A(i)(j) = Base + ((i - lower_bound_row) * columns + (j - lower_bound_column)) * k.
-
-**Two-dimensional Array Representation (Column Major Order):**
-- Elements are stored column-wise: first column, second column, and so on.
-- Address of element A(i)(j) = Base + ((j - lower_bound_column) * rows + (i - lower_bound_row)) * k.
-
-**Three-dimensional Array Representation:**
-- Array of two-dimensional arrays (plates).
-- Address of element A(i)(j)(k) is calculated similarly, considering complete plates, rows, and columns.
-
-**Generalization to n-dimensional Array:**
-- For an n-dimensional array, address calculation involves traversing through each dimension.
-- Address of an element in an n-dimensional array is calculated by considering complete (k-1)-dimensional arrays in each dimension.
-
-**Conclusion:**
-- Arrays, though visually represented in multi-dimensional forms, are stored linearly in computer memory.
-- Understanding the linear representation and address calculation of array elements is essential for efficient data manipulation.
-
-# Operations on Array - Create Array
-
-**Introduction:**
-- In this session, we'll discuss operations on arrays, specifically focusing on how to create an array and allocate memory for it in RAM.
-
-**Creating an Array:**
-- The create operation initializes an empty array and allocates the required memory.
-- Arrays in C can be created at compile-time or runtime.
-
-**Compile-time Array Creation:**
-1. **Static Memory Allocation:**
-   - Memory is allocated during compilation.
-   - To create a one-dimensional array: 
-     ```c
-     int array[100];
-     ```
-   - For a two-dimensional array:
-     ```c
-     int array[20][30];
-     ```
-     - Memory required = number of elements * size of each element (e.g., 20 * 30 * 2 bytes for integers).
-   - For a three-dimensional array:
-     ```c
-     int array[10][20][30];
-     ```
-     - Memory required = number of elements * size of each element (e.g., 10 * 20 * 30 * 2 bytes for integers).
-
-**Runtime Array Creation:**
-1. **Dynamic Memory Allocation:**
-   - Memory is allocated during program execution using functions like `malloc`.
-   - To create a one-dimensional array:
-     ```c
-     int* array = (int*)malloc(100 * sizeof(int));
-     ```
-     - `malloc` reserves memory and returns the address of the block, assigned to a pointer.
-   - To create a two-dimensional array:
-     ```c
-     int** array = (int**)malloc(5 * sizeof(int*));
-     for (int i = 0; i < 5; i++) {
-         array[i] = (int*)malloc(10 * sizeof(int));
-     }
-     ```
-     - `malloc` is used multiple times to allocate memory for each row separately.
-   - For a three-dimensional array, the process involves multiple levels of memory allocation, each for different dimensions.
-
-**General Syntax for Array Declaration:**
-- **Compile-time (Static)**
+### Structure of a Linked List
+- **Node**: Basic unit of a linked list.
+  - **Information Field**: Stores the actual data.
+  - **Address Field**: Stores the address of the next node.
+- **Head**: Pointer to the first node in the list. Essential for accessing the list.
+  
+### Node Implementation in C
+- **Defining a Node Structure**:
   ```c
-  data_type array_name[size1][size2]...[sizeN];
+  struct Node {
+      int info;
+      struct Node* next;
+  };
   ```
-- **Runtime (Dynamic)**
+  - `info`: Stores integer data.
+  - `next`: Pointer to the next node.
+
+### Example of a Linked List
+- **Creating Nodes**:
   ```c
-  data_type** array = (data_type**)malloc(size1 * sizeof(data_type*));
-  for (int i = 0; i < size1; i++) {
-      array[i] = (data_type*)malloc(size2 * sizeof(data_type));
-  }
+  struct Node* head = (struct Node*)malloc(sizeof(struct Node));
+  head->info = 3;
+  head->next = (struct Node*)malloc(sizeof(struct Node));
+  head->next->info = 1;
+  head->next->next = (struct Node*)malloc(sizeof(struct Node));
+  head->next->next->info = 7;
+  head->next->next->next = NULL;
   ```
+  - `head` points to the first node.
+  - `head->next` points to the second node.
+  - `head->next->next` points to the third node.
+  - The last node's `next` field is set to `NULL`.
 
-**Summary:**
-- Creating an array involves either compile-time static allocation or runtime dynamic allocation.
-- Compile-time allocation is straightforward with direct array declarations.
-- Runtime allocation involves using `malloc` to reserve memory dynamically, often requiring multiple steps for multi-dimensional arrays.
+### Accessing Nodes
+- **Accessing Data**:
+  - `head->info`: Data of the first node.
+  - `head->next->info`: Data of the second node.
+  - `head->next->next->info`: Data of the third node.
+- **Accessing Next Nodes**:
+  - `head->next`: Address of the second node.
+  - `head->next->next`: Address of the third node.
 
-**Week 1 Lecture: Operations on Array - Traversal and Search Operations**
+### Types of Linked Lists
+1. **Singly Linked List**:
+   - Each node stores the address of only the next node.
+   - Unidirectional: Can only move forward.
 
-# Traversal and Search Operation
+2. **Doubly Linked List**:
+   - Each node stores the address of both the next and the previous nodes.
+   - Bidirectional: Can move both forward and backward.
+   - **Node Structure**:
+     ```c
+     struct Node {
+         int info;
+         struct Node* next;
+         struct Node* prev;
+     };
+     ```
 
-**Objective:**
-- Visit all the elements in an array and display them.
+3. **Circular Linked List**:
+   - The last node points back to the first node, forming a circle.
+   - Can be singly or doubly circular linked list.
+   - Allows for continuous traversal from last to first and vice versa.
 
-**Implementation:**
-- **C Function for Traversal:**
-  ```c
-  void display(int arr[], int n) {
-      for (int i = 0; i < n; i++) {
-          printf("%d ", arr[i]);
-      }
-  }
-  ```
-  - The function takes an array and its size as parameters.
-  - Uses a `for` loop to iterate from the first index (0) to the last index (n-1).
-  - Displays each element during the traversal.
+### Summary
+- Linked lists are a fundamental data structure offering flexibility in memory usage.
+- Different types of linked lists (singly, doubly, circular) provide various traversal capabilities.
+- Understanding the node structure and how to manipulate it is crucial for implementing linked lists in C.
 
-**Complexity:**
-- **Time Complexity:** 
-  - Defined by the number of elements in the array (n).
-  - Each element is visited once, hence the time complexity is O(n) or Θ(n).
-- **Space Complexity:**
-  - The space needed is for storing the array elements, which is O(n) or Θ(n).
+# Linked List Implementation
 
-### Search Operation
+## Introduction
+- Linked lists can be implemented using:
+  - Dynamic memory allocation
+  - Static memory allocation
 
-**Objective:**
-- Check if a given element is present in an array.
+## Dynamic Memory Allocation
+- Memory allocation occurs at the time of creating a node.
+- **Advantages:**
+  - Space-efficient: Memory is allocated only when a node is created.
+  - Unlimited growth: Number of nodes can grow as long as system memory permits.
+- **Implementation:**
+  - Define a node using a `struct`.
+  - Use `malloc` function to allocate memory for each node.
+  - Which function is used for dynamic memory allocation in C?
 
-**Implementation:**
-- **C Function for Linear Search:**
-  ```c
-  int search(int arr[], int x, int n) {
-      for (int i = 0; i < n; i++) {
-          if (arr[i] == x) {
-              return i; // Element found, return index
-          }
-      }
-      return -1; // Element not found
-  }
-  ```
-  - The function takes an array, the element to search for, and the array size as parameters.
-  - Scans the array from the first index (0) to the last index (n-1).
-  - Compares each element with the search element `x`.
-  - Returns the index if the element is found, otherwise returns -1.
+	malloc()
+	Correct
+	In C programming, malloc() stands for "memory allocation." It is used to dynamically allocate a specified number of bytes of memory during the execution of a program.
+	free()
+	calloc()
+	Correct
+	calloc() also allocates memory like malloc(), but it initializes the allocated memory to zero.
+	realloc()
 
-**Complexity:**
-- **Time Complexity:**
-  - **Best Case:** Θ(1) - The element is found at the first index.
-  - **Worst Case:** Θ(n) - The element is found at the last index or not found at all.
-  - **Average Case:** Θ(n) - The element can be at any position with equal probability.
-    - For an array of size n, the average number of comparisons is (1 + 2 + ... + n) / n = (n + 1) / 2 ≈ n/2.
-- **Space Complexity:**
-  - The memory required for storing the elements in the array is O(n) or Θ(n).
+### Example:
+```c
+struct Node {
+    int data;
+    struct Node* next;
+};
 
-**Example of the Search Function:**
+struct Node* newNode = (struct Node*)malloc(sizeof(struct Node));
+```
+
+## Static Memory Allocation
+- Memory is allocated before creating the linked list.
+- **Disadvantages:**
+  - Space inefficient: Pre-allocated space may not be fully used.
+  - Limited size: Number of nodes is limited by the size of the pre-defined array.
+- **Implementation:**
+  - Define nodes within an array.
+  - Use integers to represent the index of the next node instead of pointers.
+
+### Example:
+```c
+struct Node {
+    int data;
+    int next;
+};
+
+struct Node array[10];  // Array size limits the linked list to 10 elements.
+```
+
+## Comparison: Dynamic vs. Static Memory Allocation
+- **Dynamic:**
+  - Uses pointers for next node.
+  - More natural and efficient.
+- **Static:**
+  - Uses array indices for next node.
+  - Limited by predefined array size.
+  - Less efficient and flexible.
+
+## Detailed Static Memory Allocation Example:
+- **Node Structure:**
+  - Two fields: information and next.
+- **Array Representation:**
+  - Two-dimensional array: One column for information, one for the next index.
+
+### Example:
+```c
+struct Node {
+    int data;
+    int next;
+};
+
+struct Node array[10];
+```
+- **Storing Nodes:**
+  - First node at index 5.
+  - Second node at index 2, stored in the next field of the first node.
+  - Third node at index 8, stored in the next field of the second node.
+
+### Traversing the List:
+- Start from head.
+- Use stored indices to move from one node to another.
+- Use an invalid number (e.g., -1) to mark the end of the list.
+
+### Code Implementation:
 ```c
 #include <stdio.h>
 
-int search(int arr[], int x, int n) {
-    for (int i = 0; i < n; i++) {
-        if (arr[i] == x) {
-            return i; // Element found
-        }
-    }
-    return -1; // Element not found
-}
+#define SIZE 10
+
+struct Node {
+    int data;
+    int next;
+};
+
+struct Node array[SIZE];
 
 int main() {
-    int arr[] = {3, 5, 7, 10, 15};
-    int n = sizeof(arr) / sizeof(arr[0]);
-    int x = 10;
-    int result = search(arr, x, n);
-    if (result != -1) {
-        printf("Element found at index %d\n", result);
-    } else {
-        printf("Element not found\n");
+    // Example: Initializing nodes
+    array[5].data = 3;
+    array[5].next = 2;
+
+    array[2].data = 5;
+    array[2].next = 8;
+
+    array[8].data = 7;
+    array[8].next = -1;  // End of the list
+
+    int head = 5;
+    int current = head;
+    while(current != -1) {
+        printf("%d -> ", array[current].data);
+        current = array[current].next;
     }
-    return 0;
-}
-```
-
-### Summary:
-- **Traversal:** Visit and display each element of an array from start to end.
-  - **Time Complexity:** O(n)
-  - **Space Complexity:** O(n)
-- **Search:** Find if an element exists in the array.
-  - **Time Complexity:** 
-    - Best Case: Θ(1)
-    - Worst Case: Θ(n)
-    - Average Case: Θ(n)
-  - **Space Complexity:** O(n)
-
-# Operation on Array - Insert, Delete and Update
-
-### Insertion Operation
-
-**Task:**
-- Insert a new element at any arbitrary index `i` in an array.
-
-**Assumptions:**
-1. **Memory Reservation:** The array has enough reserved memory to accommodate the new element.
-2. **Contiguous Memory:** Elements are stored at contiguous memory locations.
-3. **Update After Insertion:** After inserting, the first `n+1` locations should be occupied by `n+1` elements.
-
-**Process:**
-1. **Identify Insertion Index:** Assume insertion at index 3 (4th location).
-2. **Create Free Space:** Move all elements from index `i` to the last element one position backward starting from the last element to free space at index `i`.
-   - Move the element at the upper bound index to the upper bound + 1 index.
-   - Repeat this process backward until index `i` is reached.
-3. **Insert New Element:** Assign the new element to the free space at index `i`.
-4. **Update Array Size:** Increment the array size by 1.
-
-**Algorithm:**
-- For each index `j` from `upper_bound` to `i`:
-  ```cpp
-  arr[j+1] = arr[j];
-  ```
-- Insert the new element at index `i`:
-  ```cpp
-  arr[i] = new_element;
-  ```
-- Update the array size.
-
-**Time Complexity:**
-- **Best Case:** Inserting after the last element – O(1).
-- **Worst Case:** Inserting at the first location – O(n).
-- **Average Case:** Insert at any position with equal probability – O(n).
-
-### Delete Operation
-
-**Task:**
-- Delete an element from an arbitrary index `i`.
-
-**Process:**
-1. **Identify Deletion Index:** Assume deletion at index 3.
-2. **Move Elements Forward:** Move all elements after index `i` one position forward.
-   - Start from index `i` and move each element to the previous index.
-3. **Update Array Size:** Decrement the array size by 1.
-
-**Algorithm:**
-- For each index `j` from `i` to `upper_bound-1`:
-  ```cpp
-  arr[j] = arr[j+1];
-  ```
-- Update the array size.
-
-**Time Complexity:**
-- **Best Case:** Deleting the last element – O(1).
-- **Worst Case:** Deleting the first element – O(n).
-- **Average Case:** Delete from any location with equal probability – O(n).
-
-### Update Operation
-
-**Task:**
-- Change the value of an element at index `i`.
-
-**Process:**
-- Directly visit the index and update the value.
-
-**Algorithm:**
-- Update the value at index `i`:
-  ```cpp
-  arr[i] = new_value;
-  ```
-
-**Time Complexity:**
-- **Update:** O(1) (due to random access in arrays).
-
-### Summary and Program
-
-- **Creation:** Define an array using compile-time memory allocation.
-- **Search:** Use a function to check for a value.
-- **Insert:** Insert a new element using the defined insertion function.
-- **Delete:** Remove an element using the defined delete function.
-- **Display:** Show the elements after insertions and deletions.
-
-### Complete Program Example
-```cpp
-#include <iostream>
-
-using namespace std;
-
-void insertElement(int arr[], int& n, int index, int element) {
-    for (int i = n; i > index; --i) {
-        arr[i] = arr[i - 1];
-    }
-    arr[index] = element;
-    ++n;
-}
-
-void deleteElement(int arr[], int& n, int index) {
-    for (int i = index; i < n - 1; ++i) {
-        arr[i] = arr[i + 1];
-    }
-    --n;
-}
-
-void displayArray(int arr[], int n) {
-    for (int i = 0; i < n; ++i) {
-        cout << arr[i] << " ";
-    }
-    cout << endl;
-}
-
-int main() {
-    int arr[100] = {10, 20, 30, 40, 50};
-    int n = 5;
-
-    // Insert element 15 at index 3
-    insertElement(arr, n, 3, 15);
-    displayArray(arr, n);
-
-    // Delete element at index 2
-    deleteElement(arr, n, 2);
-    displayArray(arr, n);
+    printf("NULL\n");
 
     return 0;
 }
 ```
 
-### Key Points
-- **Insertion:** Shift elements to make space, then insert and update size.
-- **Deletion:** Shift elements to fill space, then update size.
-- **Update:** Directly access and change the value at the specified index.
+## Conclusion
+- Linked lists are generally implemented using dynamic memory allocation due to their efficiency and flexibility.
+- Static memory allocation is less efficient and limits the number of nodes by the predefined array size.
 
-# Sparse Matrix - Part I
+# Notes on Implementing Singly Linked Lists
 
-### Introduction to Sparse Matrix
+#### Introduction to Singly Linked Lists
+- **Definition**: A sequence of nodes where each node stores the address of the next node.
+- **Structure**: 
+  - Node contains data and a pointer to the next node.
+  - Dynamic memory allocation is used for efficiency and flexibility.
+- **Properties**:
+  - Allows only forward traversal.
+  - Must always store the address of the first node (head).
+  - Sequential access only (no random access).
 
-**Definition:**
-- A sparse matrix is a type of matrix with a high proportion of zero elements.
-- Different definitions in literature:
-  - More than half of the elements are zero.
-  - More than two-thirds of the elements are zero.
-  - Generalized: A matrix with a significant number of zero entries.
+#### Operations on Singly Linked Lists
+1. **Creating a Linked List**
+   - **Create Operation**: Initializes an empty linked list.
+     - Declare a pointer variable `head` to store the address of the first node.
+     - Example: Declaring `head` initializes an empty linked list.
 
-**Motivation:**
-- Storing all elements, including zeros, can waste memory.
-- For large matrices, storing only non-zero elements can save significant space.
+2. **Traversal of Linked List**
+   - **Traversal Operation**: Visits all nodes from the first to the last.
+     - Define a pointer variable `ptr`.
+     - Initialize `ptr` with the address of the first node (`ptr = head`).
+     - Iterate through the list:
+       - Print the value of the current node.
+       - Move `ptr` to the next node (`ptr = ptr->next`).
+       - Continue until `ptr` is `NULL`.
+   - **Time Complexity**: O(n)
+   - **Space Complexity**: O(n)
 
-### Storage Strategies
+3. **Search in Linked List**
+   - **Search Operation**: Finds an element in the linked list.
+     - Use a pointer to traverse the list.
+     - Check each node's data for the target value.
+     - Return if the element is found; otherwise, continue to the next node.
+     - Terminate if the end of the list is reached without finding the element.
+   - **Time Complexity**:
+     - Best case: O(1) (if element is in the first node)
+     - Worst case: O(n) (if element is in the last node or not found)
+     - Average case: O(n)
+   - **Space Complexity**: O(n)
 
-**Two Cases:**
-1. Store all elements, including zeros.
-2. Store only the non-zero elements to save space.
+#### Detailed Steps and Functions
+1. **Creating an Empty Linked List**
+```C
+   struct Node {
+    int data;
+    struct Node* next;
+};
 
-**When to Store Non-Zero Elements:**
-- Effective for large matrices to reduce memory usage.
+struct Node* head = NULL; // Creates an empty linked list
 
-### Types of Sparse Matrices
+```
 
-1. **Triangular Matrices:**
-   - **Left Lower Triangular Matrix:** Non-zero elements are below the diagonal.
-   - **Right Lower Triangular Matrix:** Non-zero elements are above the diagonal.
+2. **Traversal Function**
+   ```C
+#include <stdio.h>
 
-2. **Diagonal Matrix:** Only diagonal elements are non-zero.
-3. **Tri-Diagonal Matrix:** Non-zero elements are on the diagonal, and the first diagonals above and below it.
+void traverse(struct Node* head) {
+    struct Node* ptr = head;
+    while (ptr != NULL) {
+        printf("%d ", ptr->data);
+        ptr = ptr->next;
+    }
+}
 
-### Storing Sparse Matrices
-
-**Example: Left Lower Triangular Matrix:**
-- Non-zero elements are stored in a linear arrangement using row-major order.
-
-**Row-Major Order Storage:**
-- Store elements row by row.
-- Example: 
-  - First row: 1 element
-  - Second row: 2 elements
-  - Third row: 3 elements, etc.
-
-**Memory Arrangement:**
-- Transform the 2D matrix into a 1D array, storing only non-zero elements.
-
-### Algorithm for Storing Non-Zero Elements
-
-1. **Create a 1D Array:**
-   - Size of the array should ideally match the number of non-zero elements.
-   - If the exact number is unknown, reserve a larger space.
-
-2. **Traverse the Matrix:**
-   - Use two loops: outer loop for rows, inner loop for columns.
-   - Check the relationship between row index `i` and column index `j`.
-   - If `i >= j` (for lower triangular), store the element.
-
-3. **Code Example:**
-   ```cpp
-   int sparse_matrix_to_array(int matrix[][N], int n, int result[]) {
-       int k = 0;
-       for (int i = 0; i < n; ++i) {
-           for (int j = 0; j <= i; ++j) {  // Only consider lower triangular part
-               if (matrix[i][j] != 0) {
-                   result[k++] = matrix[i][j];
-               }
-           }
-       }
-       return k;  // Return number of non-zero elements
-   }
    ```
 
-### Accessing Elements in Sparse Matrix
+3. **Search Function**
+   ```C
+#include <stdio.h>
 
-**Effective Address Calculation:**
-- **Concept:** Calculate the address of any element `A[i][j]` in the 1D array.
-- **Formula:**
-  ```cpp
-  effective_address = base_address + sum_of_non_zero_elements_before_A[i][j]
-  ```
-- **Steps:**
-  1. Count elements in complete rows before the target row.
-  2. Add elements in the target row up to column `j`.
+// Custom bool type definition
+typedef enum { false, true } bool;
 
-**Example Calculation:**
-- **Target Element:** `A[4][3]`
-- **Count Elements:**
-  - First row: 1 element
-  - Second row: 2 elements
-  - Third row: 3 elements
-  - Fourth row up to column 3: 4 elements
-- **Total:** \(1 + 2 + 3 + 3 = 9\) elements before `A[4][3]`.
+bool search(struct Node* head, int value) {
+    struct Node* ptr = head;
+    while (ptr != NULL) {
+        if (ptr->data == value) {
+            printf("Found\n");
+            return true;
+        }
+        ptr = ptr->next;
+    }
+    printf("Not Found\n");
+    return false;
+}
 
-**Effective Address Formula:**
-- For left lower triangular matrix:
-  ```cpp
-  effective_address = base_address + (i * (i + 1) / 2) + j
-  ```
-- For right lower triangular matrix
-![[Pasted image 20240516201204.png]]
-### Generalization
+   ```
 
-- The same principles apply to other types of triangular matrices and can be adapted for column-major order.
+#### Summary
+- A singly linked list is a sequential data structure allowing only forward traversal.
+- Essential operations include creation, traversal, and search.
+- **Traversal** and **search** operations involve iterating through all nodes.
+- **Time Complexity** for both traversal and search operations is O(n).
+- **Space Complexity** is O(n), determined by the number of nodes in the list.
 
-**Column-Major Order:**
-- Store elements column by column.
+### Insertion Operation in Singly Linked List
 
-**Effective Address Formula for Right Lower Triangular Matrix:**
-- Similar steps but consider elements in column-major order.
+#### Introduction
+- Discussing insertion operation in a singly linked list.
+- Various scenarios: 
+  - Insertion as the first node.
+  - Insertion as the last node.
+  - Insertion at any position.
 
-### Summary
+#### Insertion as the First Node
+1. **Create a New Node**
+   - Define a pointer variable for the new node.
+   - Allocate memory using `malloc`.
+   - Store the new data into the new node.
 
-- **Sparse Matrices:** Efficient storage for matrices with many zero elements.
-- **Types:** Triangular, diagonal, and tri-diagonal matrices.
-- **Storage:** Transform 2D matrices into 1D arrays, storing only non-zero elements.
-- **Access:** Calculate effective addresses for elements using predefined formulas.
+2. **Establish Connection**
+   - Set the `next` field of the new node to point to the current first node.
+   - Update the head pointer to point to the new node.
 
-**Key Points:**
-- Understand when and why to use sparse matrices.
-- Efficiently store and access non-zero elements to save memory.
+3. **Implementation in a Function**
+   - Function `insertFirst` takes the address of the header and the element to insert.
+   - Create a new node and assign the required value.
+   - Connect the new node to the existing linked list.
+   - Update the head pointer.
 
-# Sparse Matrix - Part II
+4. **Complexity**
+   - Time Complexity: O(1)
+   - Space Complexity: O(n)
 
-### Transforming a Diagonal Matrix into a Linear Array
+#### Insertion as the Last Node
+1. **Create a New Node**
+   - Allocate memory for a new node.
+   - Assign the new value and set `next` to null.
 
-**Objective:**
-- Convert a diagonal matrix, which is a type of sparse matrix, into a linear array format.
+2. **Traverse to the Last Node**
+   - Scan the linked list until reaching the last node.
+   - Update a pointer variable to move through the list.
 
-**Process:**
-1. **Store Only Diagonal Elements:**
-   - In a diagonal matrix, only the diagonal elements are non-zero.
-   - Store these diagonal elements linearly.
+3. **Connect Nodes**
+   - Set the `next` field of the last node to point to the new node.
 
-**Effective Address Calculation:**
-- Use a specific expression to estimate the effective address for each diagonal element.
-  
-### Tri-diagonal Matrix Transformation
+4. **Implementation in a Function**
+   - Function `insertLast` takes the address of the first node and the element to insert.
+   - Create a new node and assign the required value.
+   - Traverse to the last node.
+   - Connect the new node as the last node.
 
-**Definition:**
-- A tri-diagonal matrix has non-zero elements on the main diagonal, one above the main diagonal, and one below the main diagonal.
+5. **Complexity**
+   - Time Complexity: O(n)
+   - Space Complexity: O(n)
 
-**Storage:**
-- Store non-zero elements row-wise: 1st row, 2nd row, 3rd row, etc.
-- Use an expression to estimate the effective address of these elements.
+### Insertion at Any Position
+1. **Create a New Node**
+   - Allocate memory for a new node.
+   - Assign the new value and set `next` to null.
 
-**Example:**
-- For element \(A(3,2)\), calculate its effective address, such as 1016.
+2. **Traverse to the Insertion Position**
+   - Scan the linked list up to the position minus one.
 
-### Generalized Sparse Matrix
+3. **Connect Nodes**
+   - Establish connection from the previous node to the new node.
+   - Then connect the previous node to the new node.
 
-**Characteristics:**
-- No specific pattern for non-zero elements.
-- Any index in the matrix can have a zero or non-zero value.
-- Cannot use simple linear transformations for effective address calculation.
+4. **Implementation in a Function**
+   - Function `insertPosition` takes the address of the first node, the position, and the element to insert.
+   - Create a new node and assign the required value.
+   - Traverse to the insertion position.
+   - Connect the new node at the desired position.
 
-**Approaches for Storing Sparse Matrices:**
+5. **Complexity**
+   - Time Complexity: O(n)
+   - Space Complexity: O(n)
 
-#### Using an Array
+#### Conclusion
+- Time and space complexities vary based on the insertion position.
+- Understanding the sequence of connections is crucial for correct insertion.
+- Each insertion method provides a different set of complexities based on traversal requirements.
 
-1. **Structure:**
-   - Use a 2D array with dimensions based on the number of non-zero elements and three columns.
-   - Columns represent:
-     - **Column 1:** Row index
-     - **Column 2:** Column index
-     - **Column 3:** Non-zero element
+# Linked List Deletion Operations
 
-2. **Example:**
-   - Define a matrix `b` of dimensions 5x3 (5 non-zero elements, 3 columns).
-   - Store each non-zero element along with its row and column index.
-     ```text
-     b = [
-       [0, 1, 5],  // Element 5 at row 0, column 1
-       [1, 0, 7],  // Element 7 at row 1, column 0
-       ...
-     ]
+1. **Introduction:**
+   - Discussing delete operations in linked lists.
+   - Three scenarios: delete the first node, delete the last node, delete a node at any position.
+
+2. **Delete the First Node:**
+   - Update the head pointer to the next node.
+   - Function to achieve this:
+     - Takes the address of the first node (head pointer).
+     - Updates the head pointer to head pointer next.
+   - Time Complexity: Θ(1)
+   - Space Complexity: Θ(n)
+
+3. **Delete the Last Node:**
+   - Scan the entire linked list till the last node.
+   - Maintain two pointer variables: current and previous.
+   - Traverse from the first node to the last.
+   - When current points to the last node, previous points to the last but one node.
+   - Disconnect the last node by assigning null to previous next.
+   - Function to achieve this:
+     - Takes the address of the first node.
+     - Uses two pointers: current and previous.
+     - Traverses until current next is null, then sets previous next to null.
+   - Time Complexity: Θ(n)
+   - Space Complexity: Θ(n)
+
+4. **Delete a Node at a Specific Position:**
+   - Maintain current and previous pointers.
+   - Traverse until reaching the desired position.
+   - Update the previous next to the current's next.
+   - Function to achieve this:
+     - Traverse to the node to delete and update previous next.
+   - Time Complexity: Θ(n)
+   - Space Complexity: Θ(n)
+
+5. **Summary:**
+   - Deleting the first node: Update head pointer.
+   - Deleting the last node: Traverse to the end and disconnect.
+   - Deleting a node at a specific position: Traverse to the position and update pointers.
+   - Time and space complexities are both Θ(n) for all deletion operations due to the need to traverse the entire list and maintain node storage.
+
+6. **Conclusion:**
+   - Efficient deletion operations are crucial in linked list management.
+   - Understanding the algorithms and their complexities is essential for effective implementation.
+
+# Doubly Linked Lists (DLL)
+
+1. **Introduction to Doubly Linked Lists (DLL)**
+    - **Review of Singly Linked Lists (SLL)**
+        - Unidirectional traversal (head to tail)
+    - **DLL Overview**
+        - Bidirectional traversal (head to tail and tail to head)
+        - Each node contains two pointers: one to the next node and one to the previous node.
+
+2. **Structure of a DLL Node**
+    - Each node has:
+        - **Information field**: to store data.
+        - **Next pointer**: to store the address of the next node.
+        - **Previous pointer**: to store the address of the previous node.
+    - Example structure:
+        ```cpp
+        struct Node {
+            int data;
+            Node* next;
+            Node* prev;
+        };
+        ```
+
+3. **Properties of DLL**
+    - Linear data structure: Nodes are arranged sequentially.
+    - Sequential access: To visit a node, you must traverse from a starting node (head or tail).
+    - Traversal:
+        - Forward traversal: using `next` pointers.
+        - Backward traversal: using `prev` pointers.
+    - Memory allocation:
+        - Can be implemented using static or dynamic memory allocation.
+        - Dynamic memory allocation is more efficient and natural for linked lists.
+
+4. **Creating a DLL Node and Building the List**
+    - **Node Creation Example:**
+        ```cpp
+        Node* newNode = new Node();
+        newNode->data = 3;
+        newNode->next = nullptr;
+        newNode->prev = nullptr;
+        ```
+    - **Maintaining Pointers:**
+        - `head` points to the first node.
+        - `tail` points to the last node.
+        - Initially, both `head` and `tail` point to the single node created.
+
+5. **Step-by-Step DLL Node Insertion Example**
+    - **First Node Creation:**
+        - Allocate memory for the node.
+        - Set data field.
+        - Set `next` and `prev` pointers to `nullptr`.
+        - Assign `head` and `tail` to point to this node.
+        ```cpp
+        Node* head = new Node();
+        head->data = 3;
+        head->next = nullptr;
+        head->prev = nullptr;
+        Node* tail = head;
+        ```
+
+    - **Second Node Creation:**
+        - Allocate memory for the new node.
+        - Set data field.
+        - Set `next` pointer to `nullptr`.
+        - Set `prev` pointer to the current `tail`.
+        - Update `tail->next` to point to the new node.
+        - Move `tail` to the new node.
+        ```cpp
+        Node* newNode = new Node();
+        newNode->data = 1;
+        newNode->next = nullptr;
+        newNode->prev = tail;
+        tail->next = newNode;
+        tail = newNode;
+        ```
+
+    - **Third Node Creation:**
+        - Allocate memory for the new node.
+        - Set data field.
+        - Set `next` pointer to `nullptr`.
+        - Set `prev` pointer to the current `tail`.
+        - Update `tail->next` to point to the new node.
+        - Move `tail` to the new node.
+        ```cpp
+        Node* newNode = new Node();
+        newNode->data = 7;
+        newNode->next = nullptr;
+        newNode->prev = tail;
+        tail->next = newNode;
+        tail = newNode;
+        ```
+
+6. **Benefits of Maintaining Both `head` and `tail` Pointers**
+    - **Efficient Insertions at End:**
+        - Directly using `tail` reduces insertion time complexity from O(n) to O(1).
+    - **Bidirectional Traversal:**
+        - Forward traversal from `head`.
+        - Backward traversal from `tail`.
+
+7. **Pointer Manipulations in DLL**
+    - Flexibility in pointer usage:
+        - Can use either `head` or `tail` to manage node connections.
+        - Example of using `head` for forward connection and `tail` for backward connection:
+        ```cpp
+        Node* newNode = new Node();
+        newNode->data = value;
+        newNode->next = nullptr;
+        newNode->prev = tail;
+        tail->next = newNode;
+        tail = newNode;
+        ```
+
+These notes cover the main concepts and detailed steps for understanding and implementing doubly linked lists, following the structure and order presented in the transcript.
+
+**Notes on Doubly Linked List Operations:**
+
+1. **Introduction to Doubly Linked List Operations:**
+   - Operations similar to singly linked list.
+   - Create function: Create an empty doubly linked list.
+   - Insert function: Insert at first, last, or any position.
+   - Delete function: Delete first, last, or any position.
+   - Search function: Search for an element.
+   - Traversal function: Traverse from first to last or last to first.
+
+2. **Implementation of Basic Operations:**
+   - Creation of an empty doubly linked list.
+   - Implementation left as an assignment.
+
+3. **Insert Operation:**
+   - Three scenarios: Insert at first, last, or any position.
+   - Detailed implementation of inserting a node as the first node.
+
+4. **Insertion at First Node:**
+   - Create a new node.
+   - Assign value and null pointers.
+   - Connect new node with the previous first node.
+   - Update head pointer to new node.
+   - Time complexity: O(1).
+   - Space complexity: O(n).
+
+5. **Insertion at Last Node:**
+   - Create a new node.
+   - Assign value and null pointers.
+   - Connect new node with the previous last node.
+   - Update tail pointer to new node.
+   - Time complexity: O(1).
+   - Space complexity: O(n).
+
+6. **Optimizing Time Complexity:**
+   - Use of tail pointer reduces traversal.
+   - Direct access to the last node.
+
+7. **Conclusion:**
+   - Insertion operations simplified with doubly linked lists.
+   - Constant time complexity achieved for insertions.
+   - Space complexity remains linear.
+
+### **Notes on Doubly Linked List Insertion at Any Position:**
+
+1. **Introduction to Insertion at Any Position:**
+   - Need to insert a node at any random position.
+   - Three possible cases discussed:
+     - Case 1: Position <= half of total nodes, scan from head.
+     - Case 2: Position > half of total nodes, scan backward from tail.
+     - Case 3: Simultaneous scanning forward and backward.
+
+2. **Approach for Case 3: Simultaneous Scanning:**
+   - Two pointers used: `head current` (forward) and `tail current` (backward).
+   - Creation of new node using malloc.
+   - Assigning head and tail pointers to head and tail respectively.
+   - Simultaneous scanning using while loop:
+     - Incrementing counter while scanning.
+     - Moving `head current` forward (`head_current = head_current->next`).
+     - Moving `tail current` backward (`tail_current = tail_current->prev`).
+
+3. **Establishing Required Connection:**
+   - After finding the position, connecting new node with the node at that position.
+   - Checking if position is in first or second half of the list.
+   - Establishing connection based on position:
+     - If in first half, using `head current`.
+     - If in second half, using `tail current`.
+
+4. **Completing Insertion Process:**
+   - Connecting new node with node at the position.
+   - Adjusting connections based on position.
+   - Illustration of connection establishment for both first and second halves of the list.
+
+5. **Defining Function for Insertion:**
+   - Defining function `insertPosition` with parameters: 
+     - Address of first node, 
+     - Address of tail node, 
+     - Element to insert, 
+     - Position to insert, 
+     - Total number of nodes in existing list.
+
+6. **Time and Space Complexity Analysis:**
+   - Time Complexity: O(n) since scanning up to middle nodes.
+   - Space Complexity: O(n) due to storage of nodes.
+
+7. **Conclusion:**
+   - Algorithm scans simultaneously from both sides.
+   - Time complexity is O(n) and space complexity is O(n).
+
+### Deleting a Node in a Doubly Linked List
+
+#### Introduction
+- Deleting a node from a doubly linked list involves three possible scenarios:
+  1. Deleting the first node.
+  2. Deleting the last node.
+  3. Deleting a node at any position.
+
+#### Deleting the First Node
+1. **Initial State**:
+   - Head points to the first node.
+   - This node will be deleted.
+
+2. **Steps**:
+   - Update the head pointer to point to the second node:
+     ```cpp
+     head = head->next;
+     ```
+   - Set the `previous` field of the new head (second node) to `NULL`:
+     ```cpp
+     head->previous = NULL;
      ```
 
-**Search Operation:**
-- To search for an element, scan the entire array since any index can be zero or non-zero.
+3. **Result**:
+   - The first node becomes a dangling node and is effectively deleted.
 
-#### Using Dynamic Memory Allocation (Linked List)
+4. **Complexity**:
+   - Time Complexity: \(O(1)\)
+   - Space Complexity: \(O(n)\)
 
-**Concept:**
-- Store non-zero elements dynamically using linked lists.
-- Each node in the linked list will store:
-  - The row index
-  - The column index
-  - The non-zero value
-  - A pointer to the next node
+#### Deleting the Last Node
+1. **Initial State**:
+   - Tail points to the last node.
+   - This node will be deleted.
 
-**Note:**
-- Detailed discussion on implementation using linked lists will be covered later.
+2. **Steps**:
+   - Update the `next` field of the second last node to `NULL`:
+     ```cpp
+     tail->previous->next = NULL;
+     ```
+   - Update the tail pointer to point to the second last node:
+     ```cpp
+     tail = tail->previous;
+     ```
 
-### Summary
+3. **Result**:
+   - The last node is deleted.
 
-- **Diagonal Matrix Transformation:** Store only diagonal elements linearly.
-- **Tri-diagonal Matrix:** Store non-zero elements row-wise and calculate effective addresses.
-- **Generalized Sparse Matrix:** Use arrays or dynamic structures like linked lists to store non-zero elements along with their indices.
+4. **Complexity**:
+   - Time Complexity: \(O(1)\)
+   - Space Complexity: \(O(n)\)
 
-### Key Points
+#### Deleting a Node at Any Position
+1. **Initial State**:
+   - We need to delete a node at a given position, say position 3.
 
-1. **Storage Methods:**
-   - Linear arrays for matrices with specific patterns (diagonal, tri-diagonal).
-   - Arrays with row and column indices for generalized sparse matrices.
-   - Dynamic structures like linked lists for more flexible storage.
+2. **Approaches**:
+   - **Case 1**: Scan from the first node forward.
+   - **Case 2**: Scan from the last node backward.
+   - **Case 3**: Scan simultaneously from both ends.
 
-2. **Effective Address Calculation:**
-   - Use expressions to estimate addresses for elements in structured sparse matrices.
+3. **Preferred Method (Case 3)**:
+   - **Step 1**: Initialize two pointers:
+     ```cpp
+     Node* headCurrent = head;
+     Node* tailCurrent = tail;
+     ```
+   - **Step 2**: Simultaneously scan forward and backward to locate the node:
+     ```cpp
+     int count = 1;
+     while (count < position) {
+         headCurrent = headCurrent->next;
+         tailCurrent = tailCurrent->previous;
+         count++;
+     }
+     ```
+   - **Step 3**: Delete the node:
+     - If node is in the first half:
+       ```cpp
+       headCurrent->next = headCurrent->next->next;
+       headCurrent->next->next->previous = headCurrent;
+       ```
+     - If node is in the second half:
+       ```cpp
+       tailCurrent->previous = tailCurrent->previous->previous;
+       tailCurrent->previous->previous->next = tailCurrent;
+       ```
 
-3. **Search and Other Operations:**
-   - For generalized sparse matrices, operations like search require scanning the entire storage structure.
+4. **Complexity**:
+   - Time Complexity: \(O(n/2) = O(n)\)
+   - Space Complexity: \(O(n)\)
 
-These notes cover the key concepts and processes for transforming and managing sparse matrices as discussed in the lecture.
+#### Summary
+- **First Node Deletion**: Update head and head's previous field.
+- **Last Node Deletion**: Update tail and tail's next field.
+- **Arbitrary Position Deletion**: Use dual scanning to find and delete the node efficiently.
 
-# Abstract Data Type (ADT)
 
-### Introduction to ADT
 
-**Scenario:**
-- John, a novice programmer, needs to work with arrays but lacks knowledge on implementing array operations.
-- Bob, an expert programmer, creates an Abstract Data Type (ADT) for arrays to help John.
+### Session Overview: Circular Linked List
 
-**Abstract Data Type (ADT):**
-- ADT consists of:
-  - Storage mechanism
-  - Data organization
-  - Set of functions for accessing data
+**1. Introduction to Linked Lists:**
+   - Recap of singly linked list and doubly linked list.
+   - Discussion on the operations: create, insert, delete, search, traverse.
 
-**Implementation:**
-- Bob provides the ADT to John, who can then use it to solve problems without knowing its internal implementation.
-- John uses the functions provided by Bob to manipulate data within the ADT.
+**2. Circular Linked List:**
+   - Definition and explanation of circular linked list.
+   - Advantages of circular linked list:
+     - No distinct head node, any node can be a starting point.
+     - Circular traversal possible.
 
-### Definition of ADT
+**3. Circular Singly Linked List:**
+   - **Structure Definition:**
+     - Node structure: integer data and a pointer to the next node.
+   - **Creating a Circular Singly Linked List with One Node:**
+     - Define node structure.
+     - Allocate memory for the node.
+     - Set the node's `next` pointer to point to itself, creating the circular connection.
+   - **Insertion in Circular Singly Linked List:**
+     - Define node structure and create the first node.
+     - Create and connect the new node by adjusting pointers.
+     - Ensure the circular connection is maintained.
+   - **Deletion in Circular Singly Linked List:**
+     - Identify and delete the target node.
+     - Adjust the pointers of the surrounding nodes to maintain the circular connection.
+   - **Traversal in Circular Singly Linked List:**
+     - Traverse the list until reaching the starting node again.
+     - Condition: `while (pointer->next != head)`
 
-**Programming Terminology:**
-- ADTs are defined using the `class` keyword in programming languages.
+**4. Circular Doubly Linked List:**
+   - **Structure Definition:**
+     - Node structure: integer data, a pointer to the next node, and a pointer to the previous node.
+   - **Creating a Circular Doubly Linked List with One Node:**
+     - Define node structure.
+     - Allocate memory for the node.
+     - Set the node's `next` and `previous` pointers to point to itself, creating the circular connection.
+   - **Insertion in Circular Doubly Linked List:**
+     - Define node structure and create the first node.
+     - Allocate memory for the new node.
+     - Adjust pointers to connect the new node ensuring both forward and backward connections.
+   - **Deletion in Circular Doubly Linked List:**
+     - Identify and delete the target node.
+     - Adjust the pointers of the surrounding nodes to maintain the circular connections.
+     - Update the head pointer if necessary.
+   - **Traversal in Circular Doubly Linked List:**
+     - Similar to singly circular linked list but with the option to traverse forward or backward.
+     - Condition: `while (pointer->next != head)` or `while (pointer->previous != head)`
 
-**Components:**
-- **Data Members:** Variables for storing data.
-- **Function Members:** Functions to operate on the data.
 
-**Access Specifiers:**
-- **Private:** Members restricted to ADT itself.
-- **Public:** Members accessible to client or application programmers.
+## **Circular Singly Linked List Implementation:**
 
-### Core Concepts of ADT
+- **Node Structure:**
+  ```cpp
+  struct Node {
+      int data;
+      struct Node* next;
+  };
+  ```
 
-**Implementer vs. Client:**
-- **Implementer:** Creates the ADT.
-- **Client:** Uses the ADT without knowing its implementation details.
+- **Create a Node:**
+  ```cpp
+  Node* head = (Node*)malloc(sizeof(Node));
+  head->data = 7;
+  head->next = head; // Circular connection
+  ```
 
-**User's Perspective:**
-- ADT defines data from the client's perspective.
-- Clients interact with the ADT using its provided functions (API).
+- **Insert a Node:**
+  ```cpp
+  Node* newNode = (Node*)malloc(sizeof(Node));
+  newNode->data = 3;
+  newNode->next = head->next; // Connect to head's next
+  head->next = newNode; // Connect head to new node
+  ```
 
-### Properties of ADT
+- **Delete a Node:**
+  ```cpp
+  Node* temp = head;
+  while(temp->next != head) {
+      temp = temp->next;
+  }
+  Node* delNode = head;
+  temp->next = head->next; // Remove head node
+  head = head->next; // Update head
+  free(delNode);
+  ```
 
-1. **Encapsulation:**
-   - Storage data and functions combined as a single unit.
+- **Traverse a Circular Singly Linked List:**
+  ```cpp
+  Node* temp = head;
+  do {
+      printf("%d ", temp->data);
+      temp = temp->next;
+  } while(temp != head);
+  ```
 
-2. **Data Hiding:**
-   - Private members are hidden from application programmers.
-   
-3. **Inheritance:**
-   - One ADT can inherit from another ADT, enabling hierarchical organization.
+**Circular Doubly Linked List Implementation:**
 
-### Advantages of ADT
+- **Node Structure:**
+  ```cpp
+  struct Node {
+      int data;
+      struct Node* next;
+      struct Node* prev;
+  };
+  ```
 
-1. **Client Convenience:**
-   - Clients use ADTs without knowing internal implementation details.
+- **Create a Node:**
+  ```cpp
+  Node* head = (Node*)malloc(sizeof(Node));
+  head->data = 7;
+  head->next = head; // Circular connection
+  head->prev = head; // Circular connection
+  ```
 
-2. **Ease of Updating:**
-   - Implementers can update ADTs without affecting client programs.
-   - Changes in internal structure can be made seamlessly.
+- **Insert a Node:**
+  ```cpp
+  Node* newNode = (Node*)malloc(sizeof(Node));
+  newNode->data = 3;
+  newNode->next = head->next;
+  newNode->prev = head;
+  head->next->prev = newNode;
+  head->next = newNode;
+  ```
 
-### Example:
+- **Delete a Node:**
+  ```cpp
+  Node* delNode = head;
+  head->prev->next = head->next;
+  head->next->prev = head->prev;
+  head = head->next;
+  free(delNode);
+  ```
 
-```cpp
-class Array {
-private:
-    // Private data members
-    int* elements;
-    int size;
-    
-    // Private member functions
-    void resize(int new_size);
-public:
-    // Public member functions
-    Array();
-    ~Array();
-    void insert(int element, int index);
-    void remove(int index);
-    int get(int index);
-};
-```
+- **Traverse a Circular Doubly Linked List:**
+  ```cpp
+  Node* temp = head;
+  do {
+      printf("%d ", temp->data);
+      temp = temp->next;
+  } while(temp != head);
+  ```
 
-Which of the following are not access specifiers? answer:  static
+These notes cover the main points from the transcript in a structured manner, including definitions, creation, insertion, deletion, and traversal of circular linked lists in both singly and doubly linked contexts.
 
-public
-static
-(static is used to define elements that are common to all instances of a class or do not require an instance to be accessed)
-private
-protected
-### Conclusion:
+### Notes on Linked Lists with Dedicated Head Node
 
-- ADTs provide a way to separate data structure implementation from its usage.
-- Clients interact with ADTs using a set of functions, without knowing implementation details.
-- Implementers can update ADTs independently, ensuring seamless integration with client programs.
-- Public members are the API connecting the data structure and the application program.
+#### 1. Introduction to Linked Lists
+- **Types of Linked Lists**: Singly Linked List, Doubly Linked List, Circular Linked List.
+- **Dedicated Head Node**: A node specifically for the head, often referred to as a dummy node or header node.
 
-These notes cover the fundamentals of Abstract Data Types (ADTs) as discussed in the lecture.
+#### 2. Issues with Previous Implementations
+- **Pointer to Pointer Variables**:
+  - Necessary for operations modifying the head pointer (e.g., inserting or deleting the first node).
+  - Ensures changes to the head pointer in functions are reflected in the caller function.
+
+#### 3. Inserting Nodes in Singly Linked List
+- **Without Dedicated Head Node**:
+  - Directly manipulate the head pointer.
+  - Use pointer to pointer to reflect changes in the caller function.
+  
+- **With Dedicated Head Node**:
+  - Introduce a dummy node (header node) whose address is stored in the head pointer.
+  - Header node simplifies insertion and deletion operations without modifying the head pointer directly.
+  
+  **Insertion Steps**:
+  - Create a new node.
+  - Establish connections between new node and the rest of the list.
+  - Update the next field of the header node to point to the new node.
+
+#### 4. Example Implementation of Insertion
+- **Create a Node**:
+  - Allocate space using `malloc`.
+  - Assign value to the new node.
+  - Link new node with the next node (if any).
+  - Update the header node to point to the new node.
+
+#### 5. Creating an Empty Linked List with a Dedicated Head Node
+- **Empty List Initialization**:
+  - Create a dummy node.
+  - Head pointer points to the dummy node.
+  - Dummy node’s next field is NULL.
+  
+  **Code Example**:
+  ```c
+  // Create header node
+  Node* header = (Node*)malloc(sizeof(Node));
+  header->next = NULL; // Initialize next as NULL
+  ```
+
+#### 6. Advantages of Dedicated Head Node
+- **Uniform Treatment**:
+  - Simplifies insertions and deletions.
+  - No need to modify the head pointer directly.
+  - Useful information can be stored in the dummy node (e.g., count of nodes).
+
+#### 7. Application to Different Linked Lists
+- **Singly Linked List**:
+  - Header node points to the first real node.
+  
+- **Circular Linked List**:
+  - Header node is part of the circular structure.
+  - Last node points to the header node.
+
+- **Doubly Linked List**:
+  - Header node helps in managing forward and backward links.
+  - Can also be circular by linking the last node to the header node.
+
+#### 8. Summary
+- Using a dedicated head node or dummy node simplifies the implementation of linked lists.
+- It provides a uniform approach to handle insertions and deletions.
+- Enhances the maintainability and readability of the code.
+- Applicable to various types of linked lists including singly, doubly, and circular linked lists.
