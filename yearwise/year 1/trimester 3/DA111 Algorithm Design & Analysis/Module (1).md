@@ -417,9 +417,6 @@ This lecture explores a real-life problem of increasing sales in a retail store 
    - **Interactive Platform**: Encourage students to share their solutions and insights in the discussion section.
    - **Collaborative Learning**: Foster a collaborative environment where students can exchange ideas and perspectives on solving real-life problems.
 
-#### Summary:
-This lecture delves into the complex problem of designing a phone that meets the diverse needs of consumers while considering factors such as price, speed, battery life, and features. Through Pareto front analysis, the lecture highlights the trade-offs involved in selecting optimal solutions within budget constraints. It emphasizes the importance of multi-objective optimization and the role of data science and algorithms in designing cost-effective and user-friendly mobile devices. Students are encouraged to engage in discussions and propose solutions to this challenging problem.
-
 ### Week 1 Lecture: Overall Structure, Grades, and Logistics
 
 #### Key Points:
@@ -594,30 +591,7 @@ Understanding asymptotic analysis and using it to evaluate algorithms ensures th
 When discussing the performance of algorithms, the time complexity determines how the runtime increases with the size of the input (denoted as \( n \)). Here’s a comparison of different time complexities and how they affect the size of \( n \) that can be handled in a fixed amount of time.
 
 ### Time Complexity Classes
-1. **Logarithmic Time (\( O(\log n) \))**
-   - Example: Binary search.
-   - If an algorithm takes \( O(\log n) \) time, and given 1 second (10^6 microseconds), it can handle \( n = 2^{10^6} \), which is an astronomically large number.
-
-2. **Linear Time (\( O(n) \))**
-   - Example: Simple search.
-   - In 1 second, it can handle \( n = 10^6 \).
-
-3. **Quadratic Time (\( O(n^2) \))**
-   - Example: Simple sorting algorithms like bubble sort.
-   - In 1 second, it can handle \( n = \sqrt{10^6} = 1000 \).
-
-4. **Cubic Time (\( O(n^3) \))**
-   - Example: Certain dynamic programming problems.
-   - In 1 second, it can handle \( n = \sqrt[3]{10^6} \approx 100 \).
-
-5. **Exponential Time (\( O(2^n) \))**
-   - Example: Solving the Traveling Salesman Problem using brute force.
-   - In 1 second, it can handle \( n = \log_2{10^6} \approx 19 \).
-
-6. **Factorial Time (\( O(n!) \))**
-   - Example: Permutations of a set.
-   - In 1 second, it can handle \( n \approx 9 \).
-
+![[Pasted image 20240527082419.png]]
 ### Impact on Input Size
 As the time complexity increases, the maximum input size \( n \) that can be handled within a fixed amount of time decreases dramatically. For instance:
 - **Logarithmic**: Handles exponentially large inputs.
@@ -628,21 +602,7 @@ As the time complexity increases, the maximum input size \( n \) that can be han
 
 ### Order of Growth and Practical Implications
 When analyzing algorithms, we focus on the order of growth:
-- **Constant Time (\( O(1) \))**: Executes in the same time regardless of the input size.
-- **Logarithmic Time (\( O(\log n) \))**: Efficient for large datasets.
-- **Linear Time (\( O(n) \))**: Suitable for moderately large datasets.
-- **Linearithmic Time (\( O(n \log n) \))**: Efficient for sorting algorithms like mergesort.
-- **Quadratic Time (\( O(n^2) \))**: Feasible for small to moderate datasets.
-- **Cubic Time (\( O(n^3) \))**: Practical for small datasets.
-- **Exponential and Factorial Time (\( O(2^n), O(n!) \))**: Generally impractical except for very small inputs or specific problems.
-
-### Big O Notation
-- **Big O (\( O \))**: Describes the upper bound of the algorithm's runtime, focusing on the worst-case scenario.
-- **Big Omega (\( \Omega \))**: Describes the lower bound, focusing on the best-case scenario.
-- **Big Theta (\( \Theta \))**: Describes the exact bound, when the upper and lower bounds are the same.
-
-In practice, **Big O notation** is the most commonly used to express the worst-case time complexity of algorithms. For instance, if an algorithm has multiple steps with different complexities, the overall time complexity is determined by the highest complexity among them.
-
+![[Pasted image 20240527083646.png]]
 ### Practical Example
 Consider a nested loop:
 ```cpp
@@ -718,6 +678,167 @@ Given an array of integers, find three numbers such that they add up to zero (or
    }
    ```
 
+Certainly, Anubhav! Here's how you can approach the 3-SUM problem with a time complexity of \(O(n^2 \log n)\) using the algorithm you described. The key steps are to sort the array, then for each pair of elements, use binary search to find the third element that completes the triplet summing to zero.
+
+Here's the algorithm in C++:
+
+```cpp
+#include <iostream>
+#include <vector>
+#include <algorithm>
+
+using namespace std;
+
+// Binary search function to find the target in the sorted array
+bool binarySearch(const vector<int>& nums, int left, int right, int target) {
+    while (left <= right) {
+        int mid = left + (right - left) / 2;
+        if (nums[mid] == target) {
+            return true;
+        } else if (nums[mid] < target) {
+            left = mid + 1;
+        } else {
+            right = mid - 1;
+        }
+    }
+    return false;
+}
+
+vector<vector<int>> threeSum(vector<int>& nums) {
+    vector<vector<int>> result;
+    int n = nums.size();
+    
+    // Step 1: Sort the array
+    sort(nums.begin(), nums.end());
+    
+    // Step 2: For each pair of numbers, use binary search to find the third number
+    for (int i = 0; i < n - 2; ++i) {
+        for (int j = i + 1; j < n - 1; ++j) {
+            int target = -(nums[i] + nums[j]);
+            if (binarySearch(nums, j + 1, n - 1, target)) {
+                result.push_back({nums[i], nums[j], target});
+            }
+        }
+    }
+    
+    // Optional: Remove duplicates from the result
+    sort(result.begin(), result.end());
+    result.erase(unique(result.begin(), result.end()), result.end());
+    
+    return result;
+}
+
+int main() {
+    vector<int> nums = {-1, 0, 1, 2, -1, -4}; // Example input
+    vector<vector<int>> triplets = threeSum(nums);
+
+    // Print the result
+    for (const auto& triplet : triplets) {
+        cout << "[";
+        for (int i = 0; i < triplet.size(); ++i) {
+            cout << triplet[i];
+            if (i < triplet.size() - 1) {
+                cout << ", ";
+            }
+        }
+        cout << "]\n";
+    }
+
+    return 0;
+}
+```
+
+### Explanation:
+
+1. **Sorting the array**: The array is sorted first. Sorting has a time complexity of \(O(n \log n)\).
+
+2. **Nested loops to find pairs**: Two nested loops iterate over all possible pairs of elements in the array. This part has a time complexity of \(O(n^2)\).
+
+3. **Binary search for the third element**: For each pair of elements \(a[i]\) and \(a[j]\), the target third element is calculated as \(-(a[i] + a[j])\). Binary search is then used to find this target in the remaining part of the array. Binary search has a time complexity of \(O(\log n)\).
+
+4. **Removing duplicates**: Since the array was sorted initially, sorting the results and removing duplicates using `unique` ensures there are no duplicate triplets in the final result.
+
+This approach reduces the time complexity to \(O(n^2 \log n)\) as required.
+
+## Using a dictionary for 3 SUM
+d
+Certainly, Anubhav! Here's the algorithm for solving the 3-SUM problem using the approach with a dictionary (hash map) for \(O(n^2 \log n)\) complexity:
+
+### Algorithm:
+
+1. **Sort the array**: Sort the array of \(N\) distinct numbers.
+2. **Dictionary for quick lookup**: For each pair of numbers \((a[i], a[j])\), use a dictionary to quickly find if the third number that completes the triplet exists.
+
+Here's how you can implement this algorithm in C++:
+
+```cpp
+#include <iostream>
+#include <vector>
+#include <unordered_map>
+#include <algorithm>
+
+using namespace std;
+
+vector<vector<int>> threeSum(vector<int>& nums) {
+    vector<vector<int>> result;
+    int n = nums.size();
+    
+    // Step 1: Sort the array
+    sort(nums.begin(), nums.end());
+    
+    // Step 2: Use a dictionary to find the third number
+    for (int i = 0; i < n - 2; ++i) {
+        for (int j = i + 1; j < n - 1; ++j) {
+            unordered_map<int, int> numMap;
+            int target = -(nums[i] + nums[j]);
+            for (int k = j + 1; k < n; ++k) {
+                if (numMap.find(target) != numMap.end()) {
+                    result.push_back({nums[i], nums[j], target});
+                    break;  // Since all elements are distinct, no need to continue for the same pair
+                }
+                numMap[nums[k]] = k;  // Store the number in the map
+            }
+        }
+    }
+    
+    // Optional: Remove duplicates from the result
+    sort(result.begin(), result.end());
+    result.erase(unique(result.begin(), result.end()), result.end());
+    
+    return result;
+}
+
+int main() {
+    vector<int> nums = {-1, 0, 1, 2, -1, -4}; // Example input
+    vector<vector<int>> triplets = threeSum(nums);
+
+    // Print the result
+    for (const auto& triplet : triplets) {
+        cout << "[";
+        for (int i = 0; i < triplet.size(); ++i) {
+            cout << triplet[i];
+            if (i < triplet.size() - 1) {
+                cout << ", ";
+            }
+        }
+        cout << "]\n";
+    }
+
+    return 0;
+}
+```
+
+### Explanation:
+
+1. **Sorting the array**: The array is sorted first. Sorting has a time complexity of \(O(n \log n)\).
+
+2. **Nested loops to find pairs**: Two nested loops iterate over all possible pairs of elements in the array. This part has a time complexity of \(O(n^2)\).
+
+3. **Dictionary for lookup**: For each pair of elements \((a[i], a[j])\), a dictionary (hash map) is used to check if the third number \(-(a[i] + a[j])\) exists in the remaining part of the array. The dictionary search has an average time complexity of \(O(1)\), but since we're iterating over all pairs, this step collectively has a time complexity of \(O(n^2)\).
+
+4. **Removing duplicates**: Since the array was sorted initially, sorting the results and removing duplicates using `unique` ensures there are no duplicate triplets in the final result.
+
+This algorithm efficiently finds the triplets with the desired sum of zero and has the required time complexity.
 #### Further Optimization Using Hash Maps
 1. **Approach**: Use a hash map to store and look up values quickly.
 2. **Time Complexity**: Still \(O(n^2)\), but with faster lookups.
@@ -784,75 +905,21 @@ The Karatsuba algorithm is a divide-and-conquer algorithm that reduces the multi
 #### Implementation
 Here is a C++ implementation of the Karatsuba algorithm:
 
-```cpp
-#include <iostream>
-#include <vector>
-#include <algorithm>
-#include <cmath>
-using namespace std;
-
-int multiplySingleDigit(int x, int y) {
-    return x * y;
-}
-
-string addStrings(string num1, string num2) {
-    string result = "";
-    int carry = 0, i = num1.size() - 1, j = num2.size() - 1;
-    while (i >= 0 || j >= 0 || carry) {
-        int sum = carry;
-        if (i >= 0) sum += num1[i--] - '0';
-        if (j >= 0) sum += num2[j--] - '0';
-        carry = sum / 10;
-        result.push_back(sum % 10 + '0');
-    }
-    reverse(result.begin(), result.end());
-    return result;
-}
-
-string subtractStrings(string num1, string num2) {
-    string result = "";
-    int carry = 0, i = num1.size() - 1, j = num2.size() - 1;
-    while (i >= 0 || j >= 0) {
-        int diff = carry + (i >= 0 ? num1[i--] - '0' : 0) - (j >= 0 ? num2[j--] - '0' : 0);
-        carry = diff < 0 ? -1 : 0;
-        result.push_back((diff + 10) % 10 + '0');
-    }
-    reverse(result.begin(), result.end());
-    return result;
-}
-
-string multiplyStrings(string x, string y) {
-    if (x.size() == 1 || y.size() == 1) return to_string(multiplySingleDigit(stoi(x), stoi(y)));
-    
-    int n = max(x.size(), y.size());
-    int half = n / 2;
-
-    string a = x.substr(0, x.size() - half);
-    string b = x.substr(x.size() - half);
-    string c = y.substr(0, y.size() - half);
-    string d = y.substr(y.size() - half);
-
-    string ac = multiplyStrings(a, c);
-    string bd = multiplyStrings(b, d);
-    string ab_cd = multiplyStrings(addStrings(a, b), addStrings(c, d));
-    
-    string ad_plus_bc = subtractStrings(subtractStrings(ab_cd, ac), bd);
-
-    string ac_zeros(n, '0');
-    string ad_plus_bc_zeros(n / 2, '0');
-
-    ac += ac_zeros;
-    ad_plus_bc += ad_plus_bc_zeros;
-
-    return addStrings(addStrings(ac, ad_plus_bc), bd);
-}
-
-int main() {
-    string x = "2345";
-    string y = "1246";
-    cout << "Product: " << multiplyStrings(x, y) << endl;
-    return 0;
-}
+```python
+def karatsuba(x, y):
+    if x < 10 or y < 10:
+        return x * y
+    else:
+        n = max(len(str(x)), len(str(y)))
+        half = n // 2
+        a = x // (10 ** (half))  # left part of x
+        b = x % (10 ** (half))  # right part of x
+        c = y // (10 ** (half))  # left part of y
+        d = y % (10 ** (half))  # right part of y
+        ac = karatsuba(a, c)
+        bd = karatsuba(b, d)
+        ad_plus_bc = karatsuba(a+b, c+d)-ac-bd
+        return ac * (10 ** (2 * half)) + (ad_plus_bc * (10 ** half)) + bd
 ```
 
 #### Explanation
@@ -876,18 +943,11 @@ Let's consider a scenario where two machines, A and B, run different implementat
   - **Input Size 10**:
     - Machine A: 2 seconds
     - Machine B: 1 hour
-  - **Input Size 20**:
-    - Machine A: 22 seconds
-    - Machine B: 1.8 hours
 
 - **Large Input Sizes**: As the input size increases, Machine B becomes more efficient.
   - **Input Size \(10^6\)**:
     - Machine A: 55 hours
     - Machine B: 5 hours
-  - **Input Size \(10^9\)**:
-    - Machine A: 6.6 years
-    - Machine B: 8.5 years
-
 #### Trade-Offs and Data Structures
 - **Simple vs. Advanced Data Structures**:
   - Simple data structures are easy to use and maintain but may not perform well with large data sets.

@@ -856,3 +856,123 @@ protected
 - Public members are the API connecting the data structure and the application program.
 
 These notes cover the fundamentals of Abstract Data Types (ADTs) as discussed in the lecture.
+
+
+# Assignments
+
+  
+```C
+#include <stdio.h>
+#include <stdlib.h>
+
+int main() {
+    int *array = NULL;  // Pointer to dynamically allocated array
+    int i = 0, value, size = 0;
+
+    // Input elements into the array
+    printf("Enter elements (enter -1 to stop):\n");
+    while(1) {
+        printf("Element %d: ", i+1);
+        scanf("%d", &value);
+
+        if (value == -1) {
+            break;
+        }
+
+        // Reallocate memory for the array
+        size++;
+        array = (int*) realloc(array, size * sizeof(int));
+        if (array == NULL) {
+            printf("Memory allocation failed!\n");
+            return 1; // Exit the program with an error code
+        }
+
+        array[i] = value;
+        i++;
+    }
+
+    // Print the elements of the array
+    printf("The elements in the array are:\n");
+    for(int j = 0; j < i; j++) {
+        printf("%d ", array[j]);
+    }
+
+    // Free the dynamically allocated memory
+    free(array);
+
+    return 0;
+}
+
+```
+
+
+```C
+#include<stdio.h>
+int main(){
+    
+    int size;
+    printf("Enter the size of array: ");
+    scanf("%d",&size);
+    int arr[size];
+    for (int i =0; i < size;i++)
+    {
+        printf("element %d: ",i);
+        scanf("%d",&arr[i]);
+    }
+    for(int i =size-1;i>=0;i--){
+        printf("%d\n",arr[i]);
+    }
+    return 0;
+    
+}
+```
+
+```C
+#include<stdio.h>
+int main(){
+    
+    int size;
+    int sum =0;
+    printf("Enter the size of array: ");
+    scanf("%d",&size);
+    int arr[size];
+    for (int i =0; i < size;i++)
+    {
+        printf("element %d: ",i);
+        scanf("%d",&arr[i]);
+    }
+    for (int i =0; i < size;i++)
+    {
+        sum+=arr[i];
+    }
+    printf("sum: %d",sum);
+    return 0;
+    
+}
+```
+
+```C
+#include<stdio.h>
+int main(){
+    
+    int size;
+    printf("Enter the size of array: ");
+    scanf("%d",&size);
+    int arr[size];
+    int brr[size];
+    for (int i =0; i < size;i++)
+    {
+        printf("element %d: ",i);
+        scanf("%d",&arr[i]);
+    }
+    printf("another array: \n");
+    for (int i =0; i < size;i++)
+    {
+        brr[i]=arr[i]; //copying operation
+        printf("%d\n",brr[i]);
+    }
+    return 0;
+    
+}
+```
+
