@@ -643,7 +643,7 @@ int main() {
   ```
 - For right lower triangular matrix
 
-    ![Example Image](example.png)
+    ![Example Image](notes/year%201/trimester%203/DA110%20Data%20Structures/example.png)
 
 ### Generalization
 
