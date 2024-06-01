@@ -918,15 +918,6 @@ The learning element modifies the performance element based on feedback from
 the critic.
 The problem generator explores new actions to improve learning and adaptation.
 
-```
-
-```
-
-```
-```
-
-```
-```
 ## Summary of Module
 
 ## Key Points to Recall
