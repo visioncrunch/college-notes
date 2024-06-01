@@ -33,7 +33,7 @@ The repository is organized into the following structure:
 
 ## Usage
 
-Navigate to the desired year, trimester, and course to access the weekly modules for each course. Each module contains notes relevant to that week's topics.
+Clone the repo to get notes instantly.
 
 ## Contributing
 
