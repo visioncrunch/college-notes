@@ -13,6 +13,7 @@
 - **Bogo Sort**
 - **Counting Sort**
 - **Radix Sort**
+- **Heap Sort**
 
 All dry run visualizations can be seen here:
 [youtube.com/playlist?list=PLpjK416fmKwQ42eDY75Q05uM0g3N9WNXU](https://www.youtube.com/playlist?list=PLpjK416fmKwQ42eDY75Q05uM0g3N9WNXU)
