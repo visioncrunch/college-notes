@@ -712,3 +712,178 @@ void reverseList(Node*& head) {
 - The iterative approaches have O(n) time complexity and O(1) space complexity.
 - Recursive solutions are also possible, but they generally have higher space complexity due to the call stack.
 - **Exercise:** Implement the recursive reverse functions for both arrays and linked lists.
+
+## Lecture Notes: Exercises on Arrays
+
+### Question 1: Effective Address Calculation
+
+Given:
+
+- Base address of integer array A: 2000
+- Integer size: 4 bytes
+
+Effective address of `A[i]`:
+
+```
+2000 + (i - 1) * 4 
+```
+
+### Question 2: Pointer Arithmetic
+
+Consider the C code:
+
+C++
+
+```
+int A[] = { 9, 11, 13, 5, 7};
+printf("%d", *(A+4));
+```
+
+Output: 7
+
+### Question 3: Left Upper Triangular Matrix
+
+Consider a 10x10 left upper triangular matrix (elements below the anti-diagonal are zero). If stored in row-major order, the element `A[4][6]` would be 0.
+
+This is because the condition for zero elements in a left upper triangular matrix is:
+
+```
+j > n - 1 - i
+```
+
+where `j` is the column index, `i` is the row index, and `n` is the matrix size.
+
+### Question 4: Effective Address in Triangular Matrix
+
+Given:
+
+- Left upper triangular matrix of size n x n
+- Base address: 2000
+- Element size: k bytes
+
+Effective address of `A[i][j]`:
+
+```
+2000 + k * ((n*(n+1)/2) - ((n-1-i)*(n-i)/2) - (n-i-j))
+```
+
+### Question 5: Finding kth Largest Element
+
+**Approach:** Binary search over range of values
+
+1. Find the minimum (`min`) and maximum (`max`) elements in the array.
+2. While `min <= max`:
+    - Calculate `mid` as the average of `min` and `max`.
+    - Count elements in the array larger than `mid`.
+    - If the count is greater than or equal to `k`, search in the upper half (`min = mid + 1`).
+    - Otherwise, search in the lower half (`max = mid - 1`).
+3. After the loop, `max` will hold the kth largest element.
+
+**Time Complexity:** O(n log (max - min)), where n is the array size and (max - min) is the range of values. This can be efficient if the range is small.
+
+**Note:** Other approaches like using heaps can be more efficient for large ranges.
+
+## Lecture Notes: Exercises on Linked Lists
+
+### Question 1
+
+C++
+
+```
+struct Node {
+    int data;
+    struct Node* next;
+};
+
+int main() {
+    Node node1 = {5, NULL};
+    Node node2 = {10, NULL};
+    Node node3 = {15, NULL};
+    Node* head = &node1;
+    node1.next = &node2;
+    node2.next = &node3;
+    printf("%d", head->next->next->data);
+}
+```
+
+**Output:** 15
+
+### Question 2
+
+C++
+
+```
+// ... (previous code for node1, node2, node3, node4, node5, head) ...
+
+head->next->next->next = node5; // node3.next = node5;
+```
+
+**Resultant Linked List:** 5 -> 10 -> 15 -> 20
+
+### Question 3
+
+C++
+
+```
+// ... (previous code for node1, node2, node3, head) ...
+
+head->next->next->next = head->next->next; // node3.next = node3;
+```
+
+**Resultant Linked List:** 5 -> 10 -> 15 (with a self-loop at 15)
+
+### Question 4
+
+C++
+
+```
+// ... (previous code for node1, node2, node3, head) ...
+
+head->next->next->next = head; // node3.next = node1;
+```
+
+**Resultant Linked List:** 5 -> 10 -> 15 (circular linked list)
+
+### Question 5
+
+C++
+
+```
+// ... (assuming a linked list with nodes 5, 10, 15, 20) ...
+
+struct Node* ptr = head;
+while (ptr->next != NULL) {
+    ptr = ptr->next;
+}
+printf("%d", ptr->data);
+```
+
+**Output:** 20
+
+### Question 6
+
+C++
+
+```
+// ... (assuming a linked list with nodes 5, 10, 15, 20) ...
+
+struct Node* ptr = head;
+while (ptr != NULL) {
+    ptr = ptr->next;
+}
+printf("%d", ptr->data); 
+```
+
+**Output:** Runtime error (segmentation fault or similar)
+
+### Question 7
+
+Worst-case time complexity of inserting `n` elements into an empty sorted linked list is **O(n²)**. Each insertion may require traversing the entire existing list to find the correct position.
+
+### Question 8
+
+The function takes a singly linked list as input and swaps the first two nodes, then the third and fourth nodes, and so on. If the list has an odd number of nodes, the last node remains unchanged.
+
+### Question 9
+
+Given the input list 1 -> 2 -> 3 -> 4 -> 5 -> 6 -> 7, the output after rearrangement will be: 2 -> 1 -> 4 -> 3 -> 6 -> 5 -> 7.
