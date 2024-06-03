@@ -214,7 +214,7 @@ Lecture Notes on Finding Minimum in a Collection Using Arrays
 - **Part of main function:**
     - Only one activation record for `main` is used.
     - Activation record size is constant.
-    - `if` block size is O(n).
+    - heap block size is O(n).
     - Overall space complexity: O(n)
 
 ### Search Operation
@@ -404,12 +404,173 @@ int findMin(Node* head) {
 - The space complexity of the functions themselves is constant (O(1)), but the overall space complexity is O(n) due to the data structure storage.
 - The choice between array and linked list might depend on other factors, such as the need for dynamic resizing.
 
+## Lecture Notes: Finding Minimum and Maximum in Integer Collections (Recursive Approach)
+
+### Recursive `findMinimum` Function
+
+C++
+
+```
+int findMinimum(int A[], int n, int i, int min) {
+    if (i == n) {
+        return min;
+    } else {
+        if (A[i] < min) {
+            min = A[i];
+        }
+        return findMinimum(A, n, i + 1, min);
+    }
+}
+```
+
+- **Functionality:** Recursively finds the minimum element in an array `A` of size `n`.
+- **Parameters:**
+    - `A`: The array.
+    - `n`: The size of the array.
+    - `i`: The current index (starts at 0).
+    - `min`: The current minimum value found.
+- **Base Case:** If `i` reaches the end of the array (`i == n`), return the current minimum (`min`).
+- **Recursive Case:**
+    - Compare the current element `A[i]` with `min`.
+    - If `A[i]` is smaller, update `min`.
+    - Recursively call `findMinimum` with the next index (`i + 1`).
+
+### Complexity Analysis
+
+- **Time Complexity:** O(n), as the function iterates through all elements of the array.
+- **Space Complexity:**
+    - **Function:** O(n), due to the recursive calls stacking up in the call stack.
+    - **Main function:** O(n), as it includes the array allocation and the space used by the recursive calls.
+
+### Recursive `findMaximum` Function (Modification)
+
+C++
+
+```
+// Replace the comparison in findMinimum:
+if (A[i] > max) {  
+    max = A[i];
+}
+```
+
+### Using Abstract Data Types (ADTs)
+
+C++
+
+```
+Array arr(8);  // Create an array of size 8 using the constructor
+
+for (int i = 0; i < n; i++) {
+    arr.insert(i, data[i]);  // Insert elements into the array
+}
+
+int min = arr.getElement(0);  // Get the first element as initial minimum
+for (int i = 1; i < n; i++) {
+    if (arr.getElement(i) < min) {
+        min = arr.getElement(i);
+    }
+}
+```
+
+- **Advantages:**
+    - Hides implementation details from the client programmer.
+    - Provides a cleaner interface for array operations.
+    - Improves code maintainability and reusability.
+
+### Summary
+
+- Recursive functions can be used to find minimum and maximum values in arrays.
+- The space complexity of recursive functions can be significant due to the call stack.
+- ADTs provide a convenient way to work with arrays, abstracting away the underlying implementation.
+
+## Lecture Notes: Finding Minimum in Integer Collections using Linked Lists
+
+### Linked List Approach
+
+1. **Create Linked List:** Build a linked list to store the integer collection.
+2. **Initialize Pointer:** Create a temporary pointer (`ptr`) and initialize it to the head of the linked list.
+3. **Initialize Minimum:** Set `min` to the value of the first node (`ptr->data`).
+4. **Scan and Update:**
+    - Traverse the linked list using `ptr`.
+    - At each node, compare the data with the current `min`.
+    - Update `min` if the node's data is smaller.
+5. **Return Minimum:** After reaching the end of the list, return the final `min` value.
+
+### Iterative Implementation
+
+C++
+
+```
+int findMinIterative(Node* head) {
+    int min = head->data; // Initialize min with the first node's data
+    Node* ptr = head;     // Temporary pointer for traversal
+    while (ptr != nullptr) {
+        if (ptr->data < min) {
+            min = ptr->data;
+        }
+        ptr = ptr->next;  // Move to the next node
+    }
+    return min;
+}
+```
+
+- **Time Complexity:** O(n), as it iterates through all nodes once.
+- **Space Complexity:** O(1), as it uses a constant amount of extra space for the pointer and minimum variable.
+
+### Recursive Implementation
+
+C++
+
+```
+int findMinRecursive(Node* head) {
+    if (head == nullptr) {
+        return INT_MAX; // Base case: empty list
+    }
+    int minRest = findMinRecursive(head->next);
+    return min(head->data, minRest);
+}
+```
+
+- **Time Complexity:** O(n), similar to the iterative version.
+- **Space Complexity:** O(n), due to the recursive calls stacking up in the call stack.
+
+### Using Abstract Data Type (ADT)
+
+C++
+
+```
+LinkedList list;  // Create a linked list
+
+for (int i = 0; i < n; i++) {
+    list.insert(data[i]);  // Insert elements into the linked list
+}
+
+int min = list.getFirst(); // Get the first element as initial minimum
+Node* ptr = list.head->next;
+while (ptr != nullptr) {
+    if (ptr->data < min) {
+        min = ptr->data;
+    }
+    ptr = ptr->next;  // Move to the next node
+}
+```
+
+- **Functionality:** Similar to the iterative implementation, but using the linked list ADT's functions.
+- **Advantage:** Hides implementation details and provides a cleaner interface for list operations.
+
+### Finding Maximum
+
+Both iterative and recursive implementations can be modified to find the maximum by changing the comparison operator from `<` to `>`.
+
+### Optimizing Time Complexity
+
+It's not possible to find the minimum (or maximum) in a linked list with a time complexity better than O(n). This is because you need to examine every element to ensure you've found the true minimum.
+
 Lecture Notes on Binary Search and Data Structure Selection
 
 ## Problem Statement
 
 Given a collection of integer numbers, search for a specific element within the collection.
-
 ## Linear Search vs. Binary Search
 
 ### Linear Search
@@ -470,3 +631,84 @@ Given a collection of integer numbers, search for a specific element within the 
 ## Conclusion
 
 The choice of data structure can significantly impact the efficiency of algorithms. For searching in sorted collections, binary search on arrays is more efficient than linear search or binary search on linked lists.
+
+## Lecture Notes: Reversing Arrays and Linked Lists
+
+### Reversing Arrays
+
+**Naive Approach (Not In-place):**
+
+- Create a new array `B`.
+- Scan the original array `A` in reverse order.
+- Store elements from `A` into `B`.
+- **Issue:** Uses additional space (not in-place).
+
+**Efficient Approach (In-place):**
+
+- **Idea:** Swap elements from both ends of the array simultaneously, moving towards the middle.
+- **Steps:**
+    1. Initialize two pointers: `start` (0) and `end` (n-1).
+    2. While `start < end`:
+        - Swap elements at `start` and `end`.
+        - Increment `start`.
+        - Decrement `end`.
+- **Time Complexity:** O(n/2) = O(n), as it iterates through half the array.
+- **Space Complexity:** O(1), as it only uses constant extra space.
+
+C++
+
+```
+void reverseArray(int A[], int n) {
+    int start = 0, end = n - 1;
+    while (start < end) {
+        int temp = A[start];
+        A[start] = A[end];
+        A[end] = temp;
+        start++;
+        end--;
+    }
+}
+```
+
+### Reversing Linked Lists (Iterative)
+
+- **Idea:** Use three pointers: `previous`, `current`, and `next` to reverse the links.
+- **Steps:**
+    1. Initialize pointers:
+        - `previous = nullptr`
+        - `current = head`
+        - `next = head->next`
+    2. Set `head->next = nullptr` (to disconnect the reversed part).
+    3. While `next != nullptr`:
+        - `previous = current`
+        - `current = next`
+        - `next = next->next`
+        - `current->next = previous`
+    4. Update `head = current` (new head after reversal).
+- **Time Complexity:** O(n), as it visits each node once.
+- **Space Complexity:** O(1), as it uses a constant amount of extra space for pointers.
+
+C++
+
+```
+void reverseList(Node*& head) {
+    Node* previous = nullptr;
+    Node* current = head;
+    Node* next = nullptr;
+
+    while (current != nullptr) {
+        next = current->next;
+        current->next = previous; 
+        previous = current;
+        current = next;
+    }
+    head = previous;  
+}
+```
+
+### Key Points
+
+- Reversing arrays and linked lists can be done efficiently in-place without using extra data structures.
+- The iterative approaches have O(n) time complexity and O(1) space complexity.
+- Recursive solutions are also possible, but they generally have higher space complexity due to the call stack.
+- **Exercise:** Implement the recursive reverse functions for both arrays and linked lists.
