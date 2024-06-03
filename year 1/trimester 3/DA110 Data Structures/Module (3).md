@@ -195,13 +195,13 @@ Lecture Notes on Finding Minimum in a Collection Using Arrays
 
 - **Dynamic allocation:**
     - `malloc` function allocates memory at runtime.
-    - Space complexity of the `if` block is O(n) (size of the array).
+    - Space complexity of the heap block is O(n) (size of the array).
     - Activation record size is constant (variables and return address).
     - Overall space complexity of the `create` function: O(n)
 - **Static allocation:**
     - Array size is defined in the activation record.
     - Activation record size is O(n).
-    - No space allocation in the `if` block (O(1)).
+    - No space allocation in the heap block (O(1)).
     - Overall space complexity of the `create` function: O(n)
 
 ### Display/Traversal Operation
