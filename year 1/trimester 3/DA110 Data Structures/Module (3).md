@@ -184,6 +184,68 @@ Let me know if you'd like me to continue summarizing more of the lecture!
 
 Lecture Notes on Finding Minimum in a Collection Using Arrays
 
+## Lecture Notes: Space Complexity of Array Operations
+
+### Clarifying Space Complexity
+
+- **Previous approach:** Considered space required by the entire program (main function + array operations).
+- **New approach:** Focus on space complexity of individual array operations as separate functions.
+
+### Create Operation
+
+- **Dynamic allocation:**
+    - `malloc` function allocates memory at runtime.
+    - Space complexity of the `if` block is O(n) (size of the array).
+    - Activation record size is constant (variables and return address).
+    - Overall space complexity of the `create` function: O(n)
+- **Static allocation:**
+    - Array size is defined in the activation record.
+    - Activation record size is O(n).
+    - No space allocation in the `if` block (O(1)).
+    - Overall space complexity of the `create` function: O(n)
+
+### Display/Traversal Operation
+
+- **Separate function:**
+    - Activation records for `main` and `display` are pushed onto the stack.
+    - Activation record for `display` is constant (variables and return address).
+    - Space complexity of `display` function: O(1)
+    - Space complexity of `main` function: O(n) (due to array allocation)
+- **Part of main function:**
+    - Only one activation record for `main` is used.
+    - Activation record size is constant.
+    - `if` block size is O(n).
+    - Overall space complexity: O(n)
+
+### Search Operation
+
+- Similar to display operation, space complexity is **O(1)** for the function itself and **O(n)** for the entire program (if array is allocated in `main`).
+
+### Summary of Array Operation Complexities
+
+|Operation|Time Complexity|Space Complexity (Function)|Space Complexity (Program)|
+|---|---|---|---|
+|Create|O(n)|O(n)|O(n)|
+|Insert|Best: O(1), Worst: O(n)|O(1)|O(n)|
+|Delete|Best: O(1), Worst: O(n)|O(1)|O(n)|
+|Traversal|O(n)|O(1)|O(n)|
+|Update|O(1)|O(1)|O(n)|
+
+### Linked List Operation Complexities (for comparison)
+
+|Operation|Time Complexity|Space Complexity (Function)|Space Complexity (Program)|
+|---|---|---|---|
+|Create|O(n)|O(n)|O(n)|
+|Insert|Best: O(1), Worst: O(n)|O(1)|O(n)|
+|Delete|Best: O(1), Worst: O(n)|O(1)|O(n)|
+|Traversal|O(n)|O(1)|O(n)|
+|Update|O(n)|O(1)|O(n)|
+
+**Key differences:**
+
+- Linked lists have O(1) space complexity for insert/delete due to dynamic node allocation.
+- Arrays and linked lists have the same program space complexity because of the array allocation in the main function.
+
 ## Problem Statement
 
 Given a collection of integer numbers, find the minimum number.
