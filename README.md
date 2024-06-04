@@ -35,6 +35,16 @@ The repository is organized into the following structure:
 
 Clone the repo to get notes instantly.
 
+## Cloning steps
+Follow the steps below:
+1. Create a folder where you wish to store notes, open the folder on a terminal, use the following command
+```bash
+git init
+```
+```bash
+git remote add origin https://github.com/visioncrunch/college-notes.git
+```
+
 ## Contributing
 
 If you'd like to contribute missing notes or improve existing ones, please follow these steps:
