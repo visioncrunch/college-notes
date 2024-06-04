@@ -880,10 +880,10 @@ printf("%d", ptr->data);
 
 Worst-case time complexity of inserting `n` elements into an empty sorted linked list is **O(n²)**. Each insertion may require traversing the entire existing list to find the correct position.
 
-### Question 8
+### Question 8 ?
 
 The function takes a singly linked list as input and swaps the first two nodes, then the third and fourth nodes, and so on. If the list has an odd number of nodes, the last node remains unchanged.
 
-### Question 9
+### Question 9 ?
 
 Given the input list 1 -> 2 -> 3 -> 4 -> 5 -> 6 -> 7, the output after rearrangement will be: 2 -> 1 -> 4 -> 3 -> 6 -> 5 -> 7.
