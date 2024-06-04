@@ -40,23 +40,6 @@ Direct GIT Cloning can be done using:
 ```bash
 git clone <repository url>
 ```
-after this we can skip straight to [Contributing](#contributing)
-
-Follow the steps below:
-1. Create a folder where you wish to store notes, open the folder on a terminal, use the following command
-```bash
-git init
-```
-the above creates a empty git repo
-2. create a local instance of the repo
-```bash
-git remote add origin <url of the forked repo>
-```
-3. pull the repo
-```bash
-git pull origin main
-```
-
 ## Contributing
 
 If you'd like to contribute missing notes or improve existing ones, please follow these steps:
