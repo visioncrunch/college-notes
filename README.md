@@ -35,25 +35,39 @@ The repository is organized into the following structure:
 
 Clone the repo to get notes instantly.
 
-## Cloning steps
+## Cloning/Forking steps
+Direct GIT Cloning can be done using:
+```bash
+git clone <repository url>
+```
+after this we can skip straight to [Contributing](#contributing)
+
 Follow the steps below:
 1. Create a folder where you wish to store notes, open the folder on a terminal, use the following command
 ```bash
 git init
 ```
+the above creates a empty git repo
+2. create a local instance of the repo
 ```bash
-git remote add origin https://github.com/visioncrunch/college-notes.git
+git remote add origin <url of the forked repo>
+```
+3. pull the repo
+```bash
+git pull origin main
 ```
 
 ## Contributing
 
 If you'd like to contribute missing notes or improve existing ones, please follow these steps:
-1. Fork this repository.
+1. Fork this repository. (Follow the above steps in [Cloning/Forking](#cloningforking-steps))
 2. Create a new branch (`git checkout -b feature/add-notes`).
 3. Make your changes.
-4. Commit your changes (`git commit -am 'Add notes for Week X of Course Y'`).
-5. Push to the branch (`git push origin feature/add-notes`).
-6. Create a new Pull Request.
+4. Check for changes using (`git status`).
+5. Add the changes (`git add .`)
+6. Commit your changes (`git commit -am 'Add notes for Week X of Course Y'`).
+7. Push to the branch (`git push origin feature/add-notes`).
+8. Create a new Pull Request.
 
 ## License
 
