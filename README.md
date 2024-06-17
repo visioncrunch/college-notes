@@ -1,7 +1,7 @@
 # College Notes Repository
 
 This repository contains college notes for different years, trimesters, courses, and weekly modules.
-### **certain folders might not be visible in case where the folder is empty**
+## **Certain folders might not be visible in case where the folder is empty**
 
 ## Structure
 
@@ -35,15 +35,12 @@ The repository is organized into the following structure:
 
 Clone the repo to get notes instantly.
 
-## Contributing
+## Cloning/Forking steps
+Direct GIT Cloning can be done using:
+```bash
+git clone <repository url>
+```
 
-If you'd like to contribute missing notes or improve existing ones, please follow these steps:
-1. Fork this repository.
-2. Create a new branch (`git checkout -b feature/add-notes`).
-3. Make your changes.
-4. Commit your changes (`git commit -am 'Add notes for Week X of Course Y'`).
-5. Push to the branch (`git push origin feature/add-notes`).
-6. Create a new Pull Request.
 
 ## License
 
