@@ -213,11 +213,6 @@ Considering these factors helps in selecting a problem that aligns with availabl
   - Example: Large-scale transportation network design can be decomposed into traffic flow optimization, infrastructure planning, and urban development.
 - **Is Travel Salesman Problem Decomposable?**
 	- No because it just needs the shortest path there is nothing else to decompose to solve.
-
-Got it, I'll incorporate this information about ignoring or undoing steps into the lecture notes:
-
-I'll incorporate the provided information about ignoring or undoing steps into the lecture notes:
-
 ### Ignoring or Undoing Steps
 - **Definition:** Can solution steps be ignored or undone during the problem-solving process?
 - **Theorem Proving:**
@@ -584,9 +579,3 @@ Goal:
 - **Importance of Control Strategy:** The order in which rules are applied in a search is crucial (the control strategy).
 - **Application of Search Strategies:** Search strategies are used in various domains, such as puzzle-solving, game playing, route planning, and resource optimization.
 - **Further Exploration:** The professor suggests that learners explore uninformed and informed search strategies in more detail in the next modules.
-
-### 7. Additional Considerations:
-
-- **No Questions Posed:** The lecture transcript doesn't include questions from students.
-- **Uncertainty:** The professor doesn't explicitly mention areas of uncertainty but implies that further exploration of search strategies is needed.
-- **No Debates:** The lecture is primarily a presentation of concepts without debates.
