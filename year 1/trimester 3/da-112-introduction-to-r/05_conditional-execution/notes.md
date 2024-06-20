@@ -2,64 +2,167 @@
 
 **Conditional Execution in R**
 
-**Introduction**
+### Introduction
+Today's topic covers conditional execution in R. We'll understand what conditional execution means, its syntax, and explore various types, including nested and hierarchical conditional execution. Additionally, we'll delve into vectorized if-else and the importance of sanity checks in code. Examples will illustrate these concepts.
 
-Conditional execution is a fundamental concept in programming, allowing developers to make decisions based on specific conditions. In R, conditional execution is a crucial aspect of programming, enabling users to write efficient and effective code. This topic will delve into the world of conditional execution, exploring the various aspects of logical expressions, conditional statements, and vectorized if-else statements.
+### Learning Objectives
+- Understand conditional execution.
+- Learn the syntax for conditional execution in R.
+- Explore nested and hierarchical conditional execution.
+- Understand vectorized if-else.
+- Learn the importance of sanity checks in coding.
+- Practice with examples.
 
-**Logical Expressions**
+### Logical Expressions
+Conditional execution in programming is based on logical expressions, which evaluate to either true or false. These expressions are used to make decisions in a program.
 
-Logical expressions are the foundation of conditional execution in R. A logical expression is an expression that evaluates to either TRUE or FALSE. These expressions are used to make decisions in a program. For instance, the expression `x > 5` is a logical expression that evaluates to TRUE if x is greater than 5 and FALSE otherwise.
+### Comparison Operators
+Comparison operators are used to compare two values:
+- `==`: Equal to
+- `!=`: Not equal to
+- `>`: Greater than
+- `<`: Less than
+- `>=`: Greater than or equal to
+- `<=`: Less than or equal to
 
-**Comparison Operators**
-
-Comparison operators are used to compare two values. In R, there are several comparison operators, including:
-
-* `==` (equal to)
-* `!=` (not equal to)
-* `>` (greater than)
-* `<` (less than)
-* `>=` (greater than or equal to)
-* `<=` (less than or equal to)
-
-These operators can be used to create logical expressions. For example, `x > 5` is a logical expression that evaluates to TRUE if x is greater than 5.
-
-**Logical Operators**
-
-Logical operators are used to combine multiple logical expressions. There are several logical operators in R, including:
-
-* `&` (and)
-* `|` (or)
-* `!` (not)
-* `&` (and)
-* `|` (or)
-
-These operators can be used to create complex logical expressions. For example, `(x > 5) & (y > 10)` is a logical expression that evaluates to TRUE if x is greater than 5 and y is greater than 10.
-
-**Vectorized If-Else Statements**
-
-Vectorized if-else statements are a powerful feature in R, allowing developers to perform conditional operations on entire vectors or matrices at once. This is achieved using the `%in%` operator, which is used to test if an element is present in a vector.
-
-**Short Form and Long Form**
-
-The short form of logical expressions is used to perform operations on entire vectors or matrices at once. The long form is used to perform operations on individual elements.
-
-**Example Code**
-
-Here is an example of using the short form to perform a logical operation on a vector:
-```r
-x <- c(1, 2, 3, 4, 5)
-y <- c(5, 6, 7, 8, 9)
-result <- x > 3 & y > 6
-print(result)
+Example:
+```R
+x <- 5
+y <- 10
+x == y  # FALSE
+x != y  # TRUE
+x > y   # FALSE
+x < y   # TRUE
+x >= y  # FALSE
+x <= y  # TRUE
 ```
-This code will output a vector of TRUE and FALSE values indicating whether each element of x is greater than 3 and each element of y is greater than 6.
 
-**Conclusion**
+### Logical Operators
+Logical operators combine multiple logical expressions:
+- `&`: AND
+- `|`: OR
+- `!`: NOT
 
-In conclusion, conditional execution is a fundamental concept in R, enabling developers to make decisions based on specific conditions. This topic has covered the basics of logical expressions, comparison operators, logical operators, and vectorized if-else statements. By mastering these concepts, developers can write efficient and effective code in R.
+Example:
+```R
+TRUE & FALSE  # FALSE
+TRUE | FALSE  # TRUE
+!TRUE         # FALSE
+```
 
----
+### Short Form vs Long Form Logical Operators
+- **Short Form (`&`, `|`)**: Performs element-wise operations and returns a logical vector of the same length as the operands.
+- **Long Form (`&&`, `||`)**: Evaluates only the first element of each vector and returns a single logical value.
 
+Example:
+```R
+# Short form
+c(TRUE, FALSE) & c(FALSE, TRUE)  # FALSE  TRUE
+
+# Long form
+TRUE && FALSE  # FALSE
+TRUE || FALSE  # TRUE
+```
+
+### Match Operators
+Match operators check for the presence of elements within vectors.
+
+Example:
+```R
+x <- c(1, 2, 3)
+1 %in% x   # TRUE
+4 %in% x   # FALSE
+```
+
+### Conditional Execution
+Conditional execution in R involves making decisions based on logical expressions.
+
+#### If Statements
+The basic structure of an if statement in R:
+```R
+if (condition) {
+  # Code to execute if condition is TRUE
+}
+```
+
+Example:
+```R
+x <- 5
+if (x > 0) {
+  print("Positive number")
+}
+```
+
+#### If-Else Statements
+An if-else statement executes one block of code if the condition is true and another block if the condition is false.
+```R
+if (condition) {
+  # Code to execute if condition is TRUE
+} else {
+  # Code to execute if condition is FALSE
+}
+```
+
+Example:
+```R
+x <- -5
+if (x > 0) {
+  print("Positive number")
+} else {
+  print("Negative number")
+}
+```
+
+#### Nested If Statements
+Nested if statements allow for multiple layers of conditions.
+```R
+if (condition1) {
+  # Code if condition1 is TRUE
+  if (condition2) {
+    # Code if condition2 is TRUE
+  }
+}
+```
+
+Example:
+```R
+x <- 5
+y <- 10
+if (x > 0) {
+  if (y > 0) {
+    print("Both numbers are positive")
+  }
+}
+```
+
+### Vectorized If-Else
+Vectorized if-else statements allow for conditional checks on entire vectors.
+```R
+result <- ifelse(condition, value_if_true, value_if_false)
+```
+
+Example:
+```R
+x <- c(-5, 0, 5)
+result <- ifelse(x > 0, "Positive", "Non-positive")
+print(result)  # "Non-positive" "Non-positive" "Positive"
+```
+
+### Sanity Checks
+Sanity checks ensure that the data or conditions meet certain criteria before executing code, preventing errors and improving code reliability.
+
+Example:
+```R
+x <- NA
+if (!is.na(x) && x > 0) {
+  print("Positive number")
+} else {
+  print("Not a positive number")
+}
+```
+
+### Summary
+Conditional execution is a fundamental concept in programming, allowing for decision-making based on logical expressions. R provides various tools and operators to perform these checks, including comparison operators, logical operators, and both short and long forms of these operators. Understanding and correctly applying these concepts enhances code efficiency and reliability.
 # HANDLING-NA-AND-NULL-IN-LOGICAL-EXPRESSION
 
 **Handling NA and NULL in Logical Expressions**
@@ -188,7 +291,7 @@ The `isTRUE` function is used to check if a value is true. It takes a single arg
 
 **Example**
 
-```
+```R
 x <- 4
 isTRUE(x)  # returns FALSE
 x <- TRUE
@@ -201,7 +304,7 @@ The `isFALSE` function is used to check if a value is false. It takes a single a
 
 **Example**
 
-```
+```R
 x <- 4
 isFALSE(x)  # returns FALSE
 x <- FALSE
@@ -214,7 +317,7 @@ The `isTRUE` and `isFALSE` functions are particularly useful when working with N
 
 **Example with NA Values**
 
-```
+```R
 x <- NA
 isTRUE(x)  # returns FALSE
 isFALSE(x)  # returns FALSE

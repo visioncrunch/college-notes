@@ -1,12 +1,170 @@
 # OBJECTS-IN-R
 
-I apologize, but it seems that there is no transcript provided. Therefore, I cannot generate comprehensive notes based on the transcript.
+Certainly! Here are comprehensive notes based on the provided transcript about vectors in R:
+
+---
+
+**Introduction to Vectors in R**
+
+- **Objects in R:**
+  - R is an object-oriented programming language, built on C.
+  - Everything in R is treated as an object, including variables, functions, and data structures like vectors, matrices, and data frames.
+
+- **Vectors:**
+  - **Definition:** Vectors in R are one-dimensional arrays that can hold elements of the same data type.
+  - **Types:** They can be atomic vectors (holding one type of data) or lists (holding different types).
+  - **Example:** Creating a numeric vector in R:
+    ```r
+    numeric_vector <- c(1, 2, 3, 4, 5)
+    ```
+
+**Topics Covered:**
+
+1. **Atomic Vectors:**
+   - **Definition:** Vectors containing elements of the same type (numeric, logical, character, etc.).
+   - **Example:** Creating a character vector:
+     ```r
+     char_vector <- c("apple", "banana", "cherry")
+     ```
+
+2. **Creating Vectors:**
+   - **Methods:** Vectors can be created using functions like `c()` or sequences like `seq()` and `rep()`.
+   - **Example:** Creating a sequence vector:
+     ```r
+     sequence_vector <- seq(1, 10, by = 2)
+     ```
+
+3. **Mixing Objects:**
+   - **Combining Types:** Vectors can hold different types of objects but will coerce them to a single type if necessary.
+   - **Example:** Mixing numeric and character vectors:
+     ```r
+     mixed_vector <- c(1, 2, "three", 4)
+     ```
+
+4. **Operations on Vectors:**
+   - **Vectorized Operations:** Operations in R are often vectorized, meaning they apply element-wise.
+   - **Example:** Adding two vectors:
+     ```r
+     result_vector <- numeric_vector + sequence_vector
+     ```
+
+5. **Vector Attributes:**
+   - **Metadata:** Vectors can have attributes like names and dimensions, enhancing their utility.
+   - **Example:** Adding names to a vector:
+     ```r
+     names(numeric_vector) <- c("A", "B", "C", "D", "E")
+     ```
+
+6. **Subsetting Vectors:**
+   - **Accessing Elements:** Subsetting allows extracting specific elements or subsets of a vector.
+   - **Example:** Accessing elements by index:
+     ```r
+     subset_vector <- numeric_vector[c(1, 3, 5)]
+     ```
+
+7. **Vector Functions:**
+   - **Utility Functions:** R provides numerous built-in functions for manipulating vectors.
+   - **Example:** Finding the length of a vector:
+     ```r
+     vector_length <- length(numeric_vector)
+     ```
+
+8. **Plotting Vectors:**
+   - **Visualization:** Vectors can be plotted directly or used in data visualization packages like ggplot2.
+   - **Example:** Creating a simple plot of a vector:
+     ```r
+     plot(numeric_vector)
+     ```
+
+**Summary:**
+
+- **Key Points Covered:**
+  - Understanding objects in R and their types.
+  - Exploring atomic vectors and their creation.
+  - Mixing objects within vectors and performing operations.
+  - Handling vector attributes and subsetting for data extraction.
+  - Utilizing vector functions and visualizing data using vectors in R.
+
+- **Conclusion:**
+  - Vectors are fundamental in R, offering flexibility and efficiency in data manipulation and analysis. Understanding their properties and operations is crucial for proficient use in programming and data science tasks.
 
 ---
 
 # ATOMIC-VECTORS
 
-Transcript not available.
+### Notes on Atomic Vectors in R
+
+#### Introduction to Atomic Vectors
+
+- **Definition**: Atomic vectors are one-dimensional arrays in R that can hold data of a single data type (class).
+- **Basic Data Structure**: They are fundamental units for storing data and must contain elements of the same class.
+
+#### Types of Atomic Vectors
+
+1. **Logical Vectors**
+   - Contains `TRUE` or `FALSE` values.
+   - Example: `c(TRUE, FALSE, TRUE)`
+
+2. **Integer Vectors**
+   - Stores whole numbers.
+   - Example: `c(1, 2, 3)`
+
+3. **Double Vectors**
+   - Stores floating-point numbers with double precision.
+   - Example: `c(1.5, 2.7, 3.0)`
+
+4. **Character Vectors**
+   - Stores text strings.
+   - Example: `c("apple", "banana", "cherry")`
+
+5. **Complex Vectors**
+   - Stores complex numbers of the form `a + bi`.
+   - Example: `c(1 + 2i, 3 - 4i)`
+
+6. **Raw Vectors**
+   - Stores raw byte values.
+   - Example: `as.raw(c(0x48, 0x65, 0x6c, 0x6c, 0x6f))` (represents "Hello")
+
+#### Creating Atomic Vectors
+
+- **Using `c()` Function**: Combines elements into a vector.
+  - Example: `x <- c(3.5)`
+  - Example: `y <- c(1, 2, 3, 4, 5)`
+
+#### Checking Vector Properties
+
+- **Type Checking Functions**:
+  - `is.numeric()`, `is.logical()`, `is.integer()`, `is.double()`, `is.character()`, `is.complex()`
+  - Example: `is.numeric(1.5)` returns `TRUE`
+  - Example: `is.character("a")` returns `TRUE`
+
+#### Handling Missing and Undefined Values
+
+- **`NA` (Not Applicable)**:
+  - Represents missing values.
+  - Example: `z <- c(1, NA, 3)` where `NA` denotes a missing value.
+
+- **`NaN` (Not a Number)**:
+  - Represents undefined or unrepresentable values in floating-point calculations.
+  - Example: `w <- 0/0` results in `NaN`.
+	 
+#### Useful Functions
+
+- **`length()`**: Determines the number of elements in a vector.
+  - Example: `length(y)` returns `5`.
+
+- **`typeof()` vs `class()`**:
+  - `typeof()` returns the basic type of the object.
+  - `class()` returns the class of the object.
+  - Example: `typeof(3.5)` returns `"double"`.
+
+- **`attributes()`**: Retrieves additional metadata associated with an object.
+
+#### Conclusion
+
+Atomic vectors in R are versatile and essential for storing homogeneous data types efficiently. They are the building blocks for more complex data structures and operations in R programming. Understanding their types, creation methods, and handling of special values like `NA` and `NaN` is crucial for effective data manipulation and analysis.
+
+These notes provide a foundational understanding of atomic vectors, preparing you to utilize them effectively in data-centric tasks in R.
 
 ---
 
@@ -151,6 +309,7 @@ Logical operations in R include negation, AND, and XOR. These operations can be 
 * Negation: `!x` can be used to negate a logical vector.
 * AND: `x & y` can be used to perform a logical AND operation on two vectors.
 * XOR: `x ^ y` can be used to perform a logical XOR operation on two vectors.
+* OR: `x || y` can be used to perform a logical OR operation on two vectors.
 
 **Matching Operator**
 
@@ -207,7 +366,7 @@ x <- c(age = 25, height = 5.8, weight = 70)
 Attributes can be set manually using the `attributes` function. For example, the following code sets the names of a vector:
 
 ```python
-x <- c(age = 25, height = 5.8, weight = 70)
+x <- c(25, 5.8, 70)
 names(x) <- c("age", "height", "weight")
 ```
 
@@ -237,8 +396,6 @@ Vector attributes in R provide a way to associate metadata with an object, which
 
 # SUBSETTING-VECTORS
 
-Transcript not available.
-
 **Introduction to Subsetting Vectors**
 
 In R, subsetting vectors allows you to access specific elements or subsets of a vector. This can be done using various methods, including indexing, logical vectors, and names.
@@ -263,9 +420,48 @@ Negative indexing allows you to subset vectors by excluding specific elements. F
 
 The `which()` function is used to find the indices of elements that meet a specific condition. For example, you can use `which(x > 3)` to find the indices of elements in vector `x` that are greater than 3.
 
-**Double Square Brackets**
+### Using Double Square Brackets `[[ ]]` in R
 
-Double square brackets can be used to extract a single element from a vector. For example, if you have a vector `x` containing the elements "age", "height", and "weight", you can use `x[[1]]` to extract the first element, which is "age".
+**Double Square Brackets for Lists:**
+- Double square brackets `[[ ]]` are used to access the elements of a list.
+- They can be used to extract a single element from a list.
+
+**Example:**
+```r
+x <- list(age = 25, height = 170, weight = 65)
+first_element <- x[[1]]  # Extracts the first element, which is 25
+```
+
+### Using Single Square Brackets `[ ]` in R
+
+**Single Square Brackets for Vectors:**
+- Single square brackets `[ ]` are used to access elements of a vector.
+- They can be used to extract one or more elements from a vector.
+
+**Example:**
+```r
+x <- c("age", "height", "weight")
+first_element <- x[1]  # Extracts the first element, which is "age"
+```
+
+### Explanation in Context:
+
+- If you have a vector `x` containing the elements "age", "height", and "weight", you can use `x[1]` to extract the first element, which is "age".
+- If you have a list `x` containing named elements like `age`, `height`, and `weight`, you can use `x[[1]]` to extract the first element, which would be the value associated with the first name (e.g., `age`).
+
+### Example with Both:
+
+```r
+# Vector example
+vector_x <- c("age", "height", "weight")
+first_element_vector <- vector_x[1]  # "age"
+
+# List example
+list_x <- list(age = 25, height = 170, weight = 65)
+first_element_list <- list_x[[1]]  # 25
+```
+
+In summary, double square brackets `[[ ]]` are primarily used for extracting elements from lists, while single square brackets `[ ]` are used for extracting elements from vectors and for subsetting.
 
 **Summary**
 
@@ -370,7 +566,7 @@ The `pi` function is used to create a pie chart of a vector. The function takes 
 Suppose we have a vector `x` containing the votes for three candidates: A, B, and C. We can use the `pi` function to create a pie chart of the votes as follows:
 ```python
 x <- c(100, 150, 200)
-pi(x, main = "Vote Count")
+pie(x, main = "Vote Count")
 ```
 This will create a pie chart with the x-axis labeled as the candidate names and the y-axis labeled as the vote counts.
 
@@ -402,7 +598,7 @@ This will create a box plot with the x-axis labeled as the values of the numbers
 
 **Summary**
 
-In this lecture, we covered the basics of plotting vectors in R, including the use of the `plot` function, `barplot` function, `pi` function, `histogram` function, and `boxplot` function. We also discussed how to customize the appearance of the plots using various options.
+In this lecture, we covered the basics of plotting vectors in R, including the use of the `plot` function, `barplot` function, `pie` function, `histogram` function, and `boxplot` function. We also discussed how to customize the appearance of the plots using various options.
 
 ---
 
